@@ -2,8 +2,8 @@
 This article aims to build a stand-alone nodeos same as the producer.
 
 
-1.Your config.ini seems no way to be changed , even using --config ./config.ini-> always be the ~/.local/share/xxx/nodeos/config/config.ini
-  Your data-dir can be assigned as --data-dir ./lypdata, default will using  ~/.local/share/xxx/nodeos/data
+1.Your config.ini seems no way to be changed , even using --config ./config.ini-> always be the ~/.local/share/baic/nodeos/config/config.ini
+  Your data-dir can be assigned as --data-dir ./lypdata, default will using  ~/.local/share/baic/nodeos/data
 
 2. How to config your node as signle node and let cli use:
        a. config.ini add plugin as:
@@ -18,5 +18,5 @@ This article aims to build a stand-alone nodeos same as the producer.
 	b. config.ini set http-server-address = 127.0.0.1:20188, to let cli can access.
 	
 	c. config.ini set producer:
-		producer-name = xxx,  to be as the producer
+		producer-name = baic,  to be as the producer
 		enable-stale-production = true, to let single produce block, multi-nodes need to be false.
