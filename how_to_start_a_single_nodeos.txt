@@ -10,6 +10,7 @@ This article aims to build a stand-alone nodeos same as the producer.
                 plugin = baic::producer_plugin
 		plugin = baic::chain_plugin
 		plugin = baic::history_plugin
+		plugin = baic::history_api_plugin
 		plugin = baic::net_plugin
 		plugin = baic::http_plugin
 		plugin = baic::chain_api_plugin
