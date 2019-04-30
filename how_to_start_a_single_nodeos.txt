@@ -23,5 +23,10 @@ This article aims to build a stand-alone nodeos same as the producer.
 		enable-stale-production = true, to let single produce block, multi-nodes need to be false.
 	d. config.ini set max-transaction-time = 5000 (before your change, it is 30.)
 	   if you do not change it, all transactions (i.e set contract) will report transaction takes too long.
-
+	
+	e. config.ini
+		add:  access-control-allow-origin='*'
+		modify:  contracts-console = true 	
+		modify:  verbose-http-errors = true
+	
 3. eos currently only support ( 1 account + 1 contract , 1:1 ) mode	
