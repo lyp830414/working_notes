@@ -1,5 +1,16 @@
 #!/bin/bash
 #set -e
+	#	amount="1.000000000 DSUSU xxxx"
+
+	#	echo $amount|awk  '{s+=gsub(/0/,"&")}END{print s}'
+	#	echo $amount|awk  '{s+=gsub(/ /,"&")}END{print s}'
+	#	exit
+	#	idx_start=echo $amount|awk  '{s+=gsub(/000/,"&")}END{print s}'
+	#	echo $idx_start
+	#	idx_end=echo $amount|`awk -v RS='@' 'BEGIN {print index(" ", " ")}'`
+	#	len=`expr $idx_end - $idx_start`
+	#	echo ${amount:$idx : $len}
+	#	exit
 
 cli_path=/home/lyp/new_baic_chain/Baic-Chain/build/programs/baic_cli
 walletpwd=""
@@ -96,12 +107,23 @@ function print_help() {
 }
 
 function transfer_cash() {
-	from=$1
-	to=$2
-	amount=$3
-	memo=$4
-	echo "$cli_path/./baic_cli transfer $from $to "$amount" "$memo""
-	$cli_path/./baic_cli transfer $from $to "$amount" "$memo"
+	choice_which=$1
+	from=$2
+	to=$3
+	amount=$4
+	memo=$5
+	if [ $choice_which == "use_baic.token" ]; then
+		param='["baic", "lypabc", "'$amount'”,"vote"]'
+		#echo "$param"
+		echo "$cli_path/./baic_cli push action baic.token transfer "$param" -p baic"
+		$cli_path/./baic_cli push action baic.token transfer "$param" -p baic
+	elif [ choice_which == "use_original" ]; then
+		echo "$cli_path/./baic_cli transfer $from $to "$amount" "$memo""
+		$cli_path/./baic_cli transfer $from $to "$amount" "$memo"
+	else
+		echo "Wrong choice $choice_which for transfer!"
+		exit
+	fi
 }
 
 if [ $# -lt 1 ]; then
@@ -203,11 +225,46 @@ case $input_param in
 			echo "Wrong! Please input your receiver user."
 			exit
 		fi
-		echo "input your amount(i.e "2 DUSD")"
+		echo "input your amount(i.e "2.000000000 DUSD")"
 		read amount
+		cnt=0
+		cnt=`echo $amount| awk '$s+=gsub(/\./,"")'`
+		echo "cnt=$cnt"
+		
+		if [ ${#cnt} -lt 1 || $cnt -ne 1 ]; then
+			echo "Input wrong. Please ensure the amount format is like x.xxxxxxxxx"
+			exit
+		elif [ $cnt -ne 1 ]; then
+			echo "wrong cnt"
+			exit
+		fi
+
+		#idx_start=`awk 'BEGIN {print index("'$amount'", ".")}'`
+		#idx_end=`awk 'BEGIN {print index("'$amount'", " ")}'`
+		#len=`expr idx_end - idx_start`
+		#echo ${amount:$idx : $len}
+		#exit
+	
+		amount="1.000000000 DSUSU xxxx"
+
+		idx_start=`awk 'BEGIN {print index("'$amount'", ".")}'`
+		echo $idx_start
+		idx_end=`echo $amount|awk 'BEGIN {print index("'$amount'", ".")}'`
+		echo $idx_end
+		cnt_zero=echo ${amount:$idx_start}|awk  '{s+=gsub(/0/,"&")}END{print s}'
+		echo $amount|awk  '{s+=gsub(/ /,"&")}END{print s}'
+		exit
+		len=`expr $idx_end - $idx_start`
+		echo ${amount:$idx : $len}
+		exit
+
 		echo "input your memo"
 		read memo
-		transfer_cash $from $to "$amount" "$memo"
+		
+		choice_which="use_baic.token"
+		#choice_which="use orignal"
+
+		transfer_cash $choice_which $from $to "$amount" "$memo"
 	;;	
 	*) #default case
 		print_help
@@ -216,6 +273,7 @@ case $input_param in
 	esac
 
 
+base_new_wallet
 
 
 
