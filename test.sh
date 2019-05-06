@@ -1,19 +1,8 @@
 #!/bin/bash
 #set -e
-	#	amount="1.000000000 DSUSU xxxx"
-
-	#	echo $amount|awk  '{s+=gsub(/0/,"&")}END{print s}'
-	#	echo $amount|awk  '{s+=gsub(/ /,"&")}END{print s}'
-	#	exit
-	#	idx_start=echo $amount|awk  '{s+=gsub(/000/,"&")}END{print s}'
-	#	echo $idx_start
-	#	idx_end=echo $amount|`awk -v RS='@' 'BEGIN {print index(" ", " ")}'`
-	#	len=`expr $idx_end - $idx_start`
-	#	echo ${amount:$idx : $len}
-	#	exit
-
 cli_path=/home/lyp/new_baic_chain/Baic-Chain/build/programs/baic_cli
 walletpwd=""
+
 
 function base_new_wallet() {
 
@@ -228,14 +217,13 @@ case $input_param in
 		echo "input your amount(i.e "2.000000000 DUSD")"
 		read amount
 		cnt=0
-		cnt=`echo $amount| awk '$s+=gsub(/\./,"")'`
-		echo "cnt=$cnt"
+		#cnt=`echo $amount| awk '$s+=gsub(/\./,"")'`
+		cnt=`echo $amount | awk -F'.' '{print NF-1}'`
 		
-		if [ ${#cnt} -lt 1 || $cnt -ne 1 ]; then
-			echo "Input wrong. Please ensure the amount format is like x.xxxxxxxxx"
-			exit
-		elif [ $cnt -ne 1 ]; then
-			echo "wrong cnt"
+
+		if [ ${#cnt} -lt 1 ] || [ $cnt -ne 1 ]; then
+			echo ${#cnt} $cnt
+			echo "Input wrong. Please ensure the amount format is like 1.000000000 DUSD"
 			exit
 		fi
 
@@ -245,18 +233,46 @@ case $input_param in
 		#echo ${amount:$idx : $len}
 		#exit
 	
-		amount="1.000000000 DSUSU xxxx"
+		
+		#calculate for zero count
+		#zero_cnt=`echo $amount|awk  '{s+=gsub(/0/,"&")}END{print s}'`
+		
+		#calculate for decimal digit numbers
+		decimal_cnts=`echo $amount|awk 'BEGIN{FS="[. ]"} {print length($2)}'`
+		
+		#calcuate for blank count
+		blank_cnts=`eval echo $amount|awk  '{s+=gsub(/ /,"&")}END{print s}'`
+		
+		#echo $zero_cnt $blank_cnt
+		if [ $decimal_cnts -ne 9	]; then
+			echo "Wrong! Decimal cnt of amount must equals to 9 -> i.e 1.000000000"
+			exit
+		elif [ $blank_cnts -ne 1 ]; then
+			echo "Wrong! your amount must be format like: 1.000000000 <token name>"
+			exit
+		fi
+			
 
-		idx_start=`awk 'BEGIN {print index("'$amount'", ".")}'`
-		echo $idx_start
-		idx_end=`echo $amount|awk 'BEGIN {print index("'$amount'", ".")}'`
-		echo $idx_end
-		cnt_zero=echo ${amount:$idx_start}|awk  '{s+=gsub(/0/,"&")}END{print s}'
-		echo $amount|awk  '{s+=gsub(/ /,"&")}END{print s}'
-		exit
-		len=`expr $idx_end - $idx_start`
-		echo ${amount:$idx : $len}
-		exit
+		#calculate for values before token name
+		#idx_start=`echo $amount|awk  '{s+=gsub(/\./,"&")}END{print s}'`
+		#echo $idx_start
+		#awk_param='BEGIN {print index("'$amount'", " ")}'
+		#idx_end=`echo $amount|awk  "$awk_param"`
+		#len=`expr $idx_end - $idx_start`
+		#echo ${amount:$idx : $len}
+		#exit
+
+
+		#idx_start=`awk 'BEGIN {print index("'$amount'", ".")}'`
+		#echo $idx_start
+		#idx_end=`echo $amount|awk 'BEGIN {print index("'$amount'", ".")}'`
+		#echo $idx_end
+		#cnt_zero=echo ${amount:$idx_start}|awk  '{s+=gsub(/0/,"&")}END{print s}'
+		#echo $amount|awk  '{s+=gsub(/ /,"&")}END{print s}'
+		#exit
+		#len=`expr $idx_end - $idx_start`
+		#echo ${amount:$idx : $len}
+		#exit
 
 		echo "input your memo"
 		read memo
