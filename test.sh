@@ -4,8 +4,8 @@ cli_path=/home/lyp/new_baic_chain/Baic-Chain/build/programs/baic_cli
 walletpwd=""
 
 function base_new_wallet() {
-
-	rm  ~/baic-wallet/baic.wallet
+	
+	rm  ~/baic-wallet/*.wallet
 	$cli_path/./baic_cli wallet create -n baic > wallet.txt
 
 	chmod 777 wallet.txt
@@ -16,6 +16,24 @@ function base_new_wallet() {
 	echo "password-->"$walletpwd
 
 	$cli_path/./baic_cli wallet unlock -n baic --password $walletpwd 2>/dev/null
+	
+	echo "base_new_wallet:$1"
+	if [ -n "$1" ] && [ $1 != "baic" ]; then
+
+		user=$1
+		$cli_path/./baic_cli wallet create -n $user > wallet2.txt
+
+		chmod 777 wallet2.txt
+		
+		$cli_path/./baic_cli wallet import -n $user --private-key 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+
+		walletpwd=`cat wallet2.txt|awk 'END {print}'|sed 's/"//g'`
+		echo "password-->"$walletpwd
+		
+		echo "$cli_path/./baic_cli wallet unlock -n $user --password $walletpwd 2>/dev/null"
+		$cli_path/./baic_cli wallet unlock -n $user --password $walletpwd 2>/dev/null
+
+	fi
 }
 
 function base_create_sys_accounts() {
@@ -178,10 +196,10 @@ function transfer_cash() {
 	amount=$4
 	memo=$5
 	if [ $choice_which == "use_baic.token" ]; then
-		param='["baic", "lypabc", "'$amount'","vote"]'
+		param='["'$from'", "'$to'", "'$amount'","vote"]'
 		#echo "$param"
-		echo "$cli_path/./baic_cli push action baic.token transfer "$param" -p baic"
-		$cli_path/./baic_cli push action baic.token transfer "$param" -p baic
+		echo "$cli_path/./baic_cli push action baic.token transfer "$param" -p $from"
+		$cli_path/./baic_cli push action baic.token transfer "$param" -p $from
 	elif [ choice_which == "use_original" ]; then
 		echo "$cli_path/./baic_cli transfer $from $to "$amount" "$memo""
 		$cli_path/./baic_cli transfer $from $to "$amount" "$memo"
@@ -231,7 +249,7 @@ case $input_param in
 	get)
 		echo "input your choice"
 		echo "1. account and currency"
-		echo "2. (others)"
+		echo "2. transaction"
 		Arg=""
 		read Arg
 		case $Arg in
@@ -246,7 +264,11 @@ case $input_param in
 				echo
 			;;
 			2)
-				echo ""
+				echo "Put your transaction ID:"
+				read trx_id
+				echo $trx_id
+				$cli_path/./baic_cli get transaction $trx_id
+				echo
 			;;
 			*) #default case
 				echo "Wrong choice. Please try again."
@@ -319,7 +341,8 @@ case $input_param in
 		choice_which="use_baic.token"
 		#choice_which="use orignal"
 
-		base_new_wallet
+		base_new_wallet $from
+		base_new_wallet $to
 		transfer_cash $choice_which $from $to "$amount" "$memo"
 	;;	
 	*) #default case
@@ -329,7 +352,6 @@ case $input_param in
 	esac
 
 
-base_new_wallet
 
 
 
