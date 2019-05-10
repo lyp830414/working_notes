@@ -3,6 +3,11 @@
 cli_path=/home/lyp/new_baic_chain/Baic-Chain/build/programs/baic_cli
 walletpwd=""
 
+owner_pub=""
+owner_private=""
+active_pub=""
+active_private=""
+
 function base_new_wallet() {
 	
 	rm  ~/baic-wallet/*.wallet
@@ -25,10 +30,22 @@ function base_new_wallet() {
 
 		chmod 777 wallet2.txt
 		
-		$cli_path/./baic_cli wallet import -n $user --private-key 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+
+		if [ ! -z $2 ] && [ ! -z $3 ]; then
+			user_owner_prvkey=$2
+			user_active_prvkey=$3
+			echo 
+			echo "wallet import private keys for $user: $user_owner_prvkey and $user_active_prvkey"
+			echo
+			$cli_path/./baic_cli wallet import -n $user --private-key $user_owner_prvkey
+			$cli_path/./baic_cli wallet import -n $user --private-key $user_active_prvkey
+		else 	
+			$cli_path/./baic_cli wallet import -n $user --private-key 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+		fi
+		
 
 		walletpwd=`cat wallet2.txt|awk 'END {print}'|sed 's/"//g'`
-		echo "password-->"$walletpwd
+		echo "  !!!!!!!!!!!!!!!! password-->"$walletpwd
 		
 		echo "$cli_path/./baic_cli wallet unlock -n $user --password $walletpwd 2>/dev/null"
 		$cli_path/./baic_cli wallet unlock -n $user --password $walletpwd 2>/dev/null
@@ -74,24 +91,64 @@ function init_base() {
 	base_set_sys_contracts
 }
 
-
-
 function raise_token() {
-	token_name=$1
-	
-	$cli_path/./baic_cli wallet unlock -n baic --password $walletpwd 2>/dev/null
+	issuer=$1
+	token_name=$2
+	max_supply=$3
+
+	$cli_path/./baic_cli wallet unlock -n $issuer --password $walletpwd 2>/dev/null
 	sleep 1
 	
-	param='{"issuer":"baic", "maximum_supply":"1000000000.000000000 '$token_name'"}'
-	$cli_path/./baic_cli push  action baic.token  create  "$param" -p baic.token
+	param='{"issuer":"'$issuer'", "maximum_supply":"'$max_supply' '$token_name'"}'
+	echo "$cli_path/./baic_cli push  action baic.token  create  $param -p baic.token"
+	$cli_path/./baic_cli push  action baic.token  create  "$param" -p baic.token #this must be baic.token
 	
 	sleep 1
 	
 	#./baic_cli push  action baic.token  create  '{"baic", "1000000000.000000000 BAIC"}' -p baic.token
 	
-	param='["baic", "1000000000.000000000 '$token_name'", "test msg"]'
-	$cli_path/./baic_cli push  action baic.token  issue "$param" -p baic
+	param='["'$issuer'", "'$max_supply' '$token_name'", "issue the new token"]'
+	echo "$cli_path/./baic_cli push  action baic.token  issue $param -p baic.token"
+	$cli_path/./baic_cli push  action baic.token  issue "$param" -p $issuer
 	sleep 1
+}
+
+function system_new_accounts_with_wallet() {
+	echo "input your account name"
+	read account
+	if [ ${#account} -lt 1 ]; then
+		echo "Please input your account."
+		exit
+	fi
+	
+	echo "please input your owner pub key:"
+	read owner_pub owner_private
+	if [ ${#owner_pub} -lt 1 ]; then
+		echo "Please input your owner public key."
+		exit
+	fi
+	if [ ${#owner_private} -lt 1 ]; then
+		echo "Please input your owner private key."
+		exit
+	fi
+
+	echo "please input your active pub key:"
+	read active_pub active_private
+	if [ ${#active_pub} -lt 1 ]; then
+		echo "Please input your active public key."
+		exit
+	fi
+	if [ ${#active_private} -lt 1 ]; then
+		echo "Please input your active private key."
+		exit
+	fi
+	
+	echo  $owner_pub
+	echo  $owner_private
+	echo  $active_pub
+	echo  $active_private
+	
+	$cli_path/./baic_cli system newaccount --transfer --stake-net "0.500000010 DUSD" --stake-cpu "0.500000010 DUSD" --buy-ram "7.500000000 DUSD" baic $account $owner_pub $active_pub
 }
 
 function system_new_accounts() {
@@ -235,16 +292,55 @@ case $input_param in
 		token="DUSD"
 		read token
 		if [ ${#token} -lt 1 ]; then #check length of token string
-			echo "use default DUSD as your token."
-			token="DUSD"
+			#echo "use default DUSD as your token."
+			#token="DUSD"
+			echo "Please give your token name."
+			exit
 		else
 			echo "use $token as your token."
 		fi
 
 		echo
-		base_new_wallet
-		raise_token $token
 		
+		account=""
+		echo "You need publish token to whom(account name):"
+		read account
+
+		if [ ${#account} -lt 1 ]; then #check length of token string
+			echo "Please give an account name."
+			exit
+		fi
+
+		echo "!!!!!!!!!!!!!!! $2"
+		#case $2 in
+		#--a
+		#--b
+		# *)...
+		if [ ! -z $2 ] && [ $2 == "--with-wallet" ]; then
+			echo "Please give your owner private and active private in one line"
+			read owner_private  active_private
+			base_new_wallet $account $owner_private $active_private
+			
+			#a='111|222|333'
+			#OIFS=$IFS; IFS="|"; set -- $result; ownerpub=$1;ownerpriv=$2;actpub=$3; actpri=$4;IFS=$OIFS 
+			#echo "system_new_accounts_with_wallet: result: $result"
+		        #echo "( $ownerpub  $ownerpriv  $actpub  $actpri )" 
+			#exit
+		else
+			base_new_wallet
+		fi
+
+		echo "please give your max supply (i,e 11.000000000 <token name>)"
+		read max_supply
+
+		raise_token $account $token $max_supply
+		
+		
+		#	echo "please input yout [owner private key and active private key] in one line:"
+		#	read owner_prvkey active_prvkey
+		#	base_new_wallet $username $owner_prvkey $active_prvkey
+
+
 		exit
 	;;	
 	get)
@@ -277,6 +373,21 @@ case $input_param in
 		esac	
 	;;
 	newaccount)
+		
+		if [ ! -z $2 ] && [ $2 == "--with-wallet" ]; then
+
+			system_new_accounts_with_wallet
+
+			base_new_wallet $username $owner_private $active_private
+			#a='111|222|333'
+			#OIFS=$IFS; IFS="|"; set -- $result; ownerpub=$1;ownerpriv=$2;actpub=$3; actpri=$4;IFS=$OIFS 
+			#echo "system_new_accounts_with_wallet: result: $result"
+		        #echo "( $ownerpub  $ownerpriv  $actpub  $actpri )" 
+			#exit
+		exit
+		fi
+
+
 		echo "please input your new account:"
 		username=""
 		read username
@@ -310,8 +421,8 @@ case $input_param in
 
 		base_new_wallet
 		
+			
 		system_new_accounts $username $stake_net_amounts $stake_cpu_amounts $buy_ram_amounts
-
 		exit
 	;;
 	transfer)
@@ -331,6 +442,7 @@ case $input_param in
 			echo "Wrong! Please input your receiver user."
 			exit
 		fi
+		
 		echo "input your amount(i.e "2.000000000 DUSD")"
 		read amount
 		echo "check:$amount"
