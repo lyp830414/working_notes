@@ -1,12 +1,16 @@
 #!/bin/bash
 #set -e
 cli_path=/home/lyp/new_baic_chain/Baic-Chain/build/programs/baic_cli
+
 walletpwd=""
 
 owner_pub=""
 owner_private=""
 active_pub=""
 active_private=""
+
+
+
 
 function base_new_wallet() {
 	
@@ -148,7 +152,7 @@ function system_new_accounts_with_wallet() {
 	echo  $active_pub
 	echo  $active_private
 	
-	$cli_path/./baic_cli system newaccount --transfer --stake-net "0.500000010 DUSD" --stake-cpu "0.500000010 DUSD" --buy-ram "7.500000000 DUSD" baic $account $owner_pub $active_pub
+	$cli_path/./baic_cli system newaccount --transfer --stake-net "0.500000000 DUSD" --stake-cpu "0.500000000 DUSD" --buy-ram "7.500000000 DUSD" baic $account $owner_pub $active_pub
 }
 
 function system_new_accounts() {
@@ -355,9 +359,11 @@ case $input_param in
 				username=""
 				read username
 				echo
+				echo "Input your token contract name:"
+				read contractname
 				$cli_path/./baic_cli get account $username
 				echo "asset of $username:"
-				$cli_path/./baic_cli get currency balance baic.token $username
+				$cli_path/./baic_cli get currency balance $contractname $username #contractname: baic.token, dma.music..
 				echo
 			;;
 			2)
