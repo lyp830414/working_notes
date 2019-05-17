@@ -3,58 +3,104 @@
 
 ##################################################################################
 
+g_arr=()
 # cli path
 cli_path=/home/lyp/new_baic_chain/Baic-Chain/build/programs/baic_cli
-
+wallet_url=http://127.0.0.1:20188 #--wallet-url http://10.101.2.69:8900, only for account baicpay
+url=http://127.0.0.1:20188
+baic_cli="baic_cli --wallet-url $wallet_url --url $url"
 
 ##########################   CONFIGURATION   #####################################
 
+G_baic_owner_public_key=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+G_baic_owner_private_key=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+G_baic_active_public_key=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+G_baic_active_private_key=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+G_wallet_path=/home/lyp/code_baic_chain/Baic-Chain/build/programs/nodeos/lypdata
+
 #++++ sys_init ++++++++#
 
+# passed test both in manual & conf
 
-#++++ new_account +++++# 
+#++++ new_account +++++#
 
-G_new_account_name=""
+# passed both in manual & conf
 
-G_owner_public_key=
-G_owner_private_key=
+G_new_account_name=testccf
 
-G_active_public_key=
-G_active_private_key=
+G_signer=baic
+G_signer_owner_private=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+G_signer_active_private=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 
+G_owner_public_key=BAIC6riyy91vEZHMR7dtQdRGxYE3XqUHevmCPhToDapdYvHp1ZLgcd
+G_owner_private_key=5JvuWRU7ndEuLA9PSgv82oKSWE5M8Yg7LZmZmmvWJzJpc1UsYZ6
+
+G_active_public_key=BAIC8RLAzY3ury6SVipebeAwh7bcQEYcvv5UQMpNM37hmjKeXn4oSD
+G_active_private_key=5Hvn2YhWsqTGarG3TJsdDFEpGiR3AiHZ7Q7e8tGsFE5y7ftyL38
+
+G_stake_net_dusd="0.500000000 DUSD"
+G_stake_cpu_dusd="0.500000000 DUSD"
+G_stake_ram_dusd="7.500000000 DUSD"
 
 #++++ new_token / issue_token  +++++#
 
-G_issuer=""
+# passed both in manual & conf
 
-G_issuer_private_key=""
+G_issuer=$G_new_account_name
+G_buy_account=$G_new_account_name
+G_token_contract=$G_new_account_name
 
-G_token_name=""
+G_issue_owner_private_key=5JvuWRU7ndEuLA9PSgv82oKSWE5M8Yg7LZmZmmvWJzJpc1UsYZ6
+G_issue_active_private_key=5Hvn2YhWsqTGarG3TJsdDFEpGiR3AiHZ7Q7e8tGsFE5y7ftyL38
 
-G_token_supply=""
+G_set_contract=true
 
-G_init_gas_dusd=“1.0 DUSD”
+G_contract_path="/home/lyp"
+G_contract_wasm="/home/lyp/baic.token.wasm"
+G_contract_abi="/home/lyp/baic.token.abi"
+G_buy_ram="280.000000000 DUSD"
+G_buy_dusd="3.000000000 DUSD"
+G_token_supply="9999.999999999 DUSD"
 
 #++++  transfer    +++++#
 
-G_from=""
-G_to=""
-G_amount=""
-G_from_private_key=""
+# passed both in manual & conf
+
+G_transfer_contract="baic.token"
+G_from="baic"
+G_to="testccf"
+G_amount="1.00000000 DUSD"
+G_from_owner_private_key=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+G_from_active_private_key=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 
 #++++  get_account  +++++#
-
-G_account=""
-
-#++++  get_code_abi +++++#
-G_contract=“”
-
 #++++ get_transaction +++#
-G_trx_id=""
+#++++  get_code_abi +++++#
+
+ # passed both in manual & conf
+
+G_account="testccf"
+G_contract="testbbb"
+G_trx_id=17c896f854516347c07db0dc624e4da043c8343feb4b782b11f0c3b77f0a4987
+G_save_code="code.wasm"
+G_save_abi="code.abi"
+
 
 ###########################    YOUR CHOICE    ###################################
 
-YOUR_CHOICE=sys_init
+g_arr[${#g_arr[*]}]=sys_init
+g_arr[${#g_arr[*]}]=transfer
+g_arr[${#g_arr[*]}]=new_token
+g_arr[${#g_arr[*]}]=new_account
+g_arr[${#g_arr[*]}]=transfer
+g_arr[${#g_arr[*]}]=get_account
+g_arr[${#g_arr[*]}]=get_transaction
+g_arr[${#g_arr[*]}]=get_code_abi
+
+#g_arr[${#arr[*]}]=
+#g_arr[${#arr[*]}]=
+#g_arr[${#arr[*]}]=
+#g_arr[${#arr[*]}]=
 
 #################################################################################
 
@@ -65,148 +111,198 @@ owner_private=""
 active_pub=""
 active_private=""
 
+get_char()
+{
+	SAVEDSTTY=`stty -g`
+	stty -echo
+	stty cbreak
+	dd if=/dev/tty bs=1 count=1 2> /dev/null
+	stty -raw
+	stty echo
+	stty $SAVEDSTTY
+}
 
 function base_new_wallet() {
 	
-	rm  ~/baic-wallet/*.wallet
-	$cli_path/./baic_cli wallet create -n baic > wallet.txt
+	#rm -rf ~/baic-wallet/*.wallet
 
-	chmod 777 wallet.txt
-
-	$cli_path/./baic_cli wallet import -n baic --private-key 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-
-	walletpwd=`cat wallet.txt|awk 'END {print}'|sed 's/"//g'`
-	echo "password-->"$walletpwd
-
-	$cli_path/./baic_cli wallet unlock -n baic --password $walletpwd 2>/dev/null
+	user=$1
+	echo "========================================"
+	echo `./baic_cli wallet list|wc -l`
+	echo "========================================"
 	
-	echo "base_new_wallet:$1"
-	if [ -n "$1" ] && [ $1 != "baic" ]; then
+	if [ -z $G_wallet_path ]; then
+		echo "Please set your 'G_wallet_path' value where store your wallet file!"
+		exit
+	fi	
+	
+	rm -rf $G_wallet_path/*.wallet
 
-		user=$1
-		$cli_path/./baic_cli wallet create -n $user > wallet2.txt
+	#walletpwd=$G_wallet_password
+	
+	#if [ `$cli_path/./$baic_cli wallet list|wc -l` -le 2 ]; then
+		echo "$cli_path/./$baic_cli wallet create > /tmp/wallet2.txt"
+		$cli_path/./$baic_cli wallet create > /tmp/wallet2.txt
+		walletpwd=`cat /tmp/wallet2.txt|awk 'END {print}'|sed 's/"//g'`
+		#chmod 777 /tmp/wallet2.txt
+	#elif [ -z $G_wallet_password ]; then
+	#	if [ -s /tmp/wallet2.txt ]; then
+	#		walletpwd=`cat /tmp/wallet2.txt|awk 'END {print}'|sed 's/"//g'`
+	#	else
+	#		echo
+	#		echo "$cli_path/./$baic_cli wallet list"
+	#		$cli_path/./$baic_cli wallet list
+	#		echo "You must set your wallet password in 'G_wallet_password' value!"
+	#		echo
+	#		exit
+	#	fi
+	#fi
+	
+	echo "  !!!!!!!!!!!!!!!! password-->"$walletpwd
 
-		chmod 777 wallet2.txt
-		
+	
+	user_owner_prvkey=$2
+	user_active_prvkey=$3
+	echo 
+	echo "aaa:"
+	echo "wallet import private keys for $user: $user_owner_prvkey and $user_active_prvkey"
+	$cli_path/./$baic_cli wallet import --private-key $user_owner_prvkey 2>/dev/null
+	echo "bbb"
+	echo "!!!!"
+	echo "$cli_path/./$baic_cli wallet import --private-key $user_active_prvkey"
+	$cli_path/./$baic_cli wallet import --private-key $user_active_prvkey 2>/dev/null
+	echo "cccc"
+	echo "$cli_path/./$baic_cli wallet unlock --password $walletpwd 2>/dev/null"
+	$cli_path/./$baic_cli wallet unlock --password $walletpwd 2>/dev/null
 
-		if [ ! -z $2 ] && [ ! -z $3 ]; then
-			user_owner_prvkey=$2
-			user_active_prvkey=$3
-			echo 
-			echo "wallet import private keys for $user: $user_owner_prvkey and $user_active_prvkey"
-			echo
-			$cli_path/./baic_cli wallet import -n $user --private-key $user_owner_prvkey
-			$cli_path/./baic_cli wallet import -n $user --private-key $user_active_prvkey
-		else 	
-			$cli_path/./baic_cli wallet import -n $user --private-key 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-		fi
-		
-
-		walletpwd=`cat wallet2.txt|awk 'END {print}'|sed 's/"//g'`
-		echo "  !!!!!!!!!!!!!!!! password-->"$walletpwd
-		
-		echo "$cli_path/./baic_cli wallet unlock -n $user --password $walletpwd 2>/dev/null"
-		$cli_path/./baic_cli wallet unlock -n $user --password $walletpwd 2>/dev/null
-
-	fi
+	echo "++++++++++++++++  WALLET  DONE ++++++++++++++++++"
+	echo
 }
 
 function base_create_sys_accounts() {
 
-	$cli_path/./baic_cli create account baic baic.dusd BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./baic_cli create account  baic baic.bpay BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./baic_cli create account  baic  baic.msig BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./baic_cli create account  baic baic.names BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	 $cli_path/./baic_cli create account  baic baic.ram BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./baic_cli create account  baic baic.ramfee BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./baic_cli create account  baic baic.saving BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./baic_cli create account  baic baic.stake BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./baic_cli create account  baic baic.token BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./baic_cli create account  baic baic.vpay BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./baic_cli create account  baic baic.sudo BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./baic_cli create account  baic baic.high BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./baic_cli create account  baic baic.pool BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account baic baic.dusd BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account  baic baic.bpay BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account  baic  baic.msig BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account  baic baic.names BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	 $cli_path/./$baic_cli create account  baic baic.ram BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account  baic baic.ramfee BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account  baic baic.saving BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account  baic baic.stake BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account  baic baic.token BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account  baic baic.vpay BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account  baic baic.sudo BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account  baic baic.high BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli create account  baic baic.pool BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 
 }
 
 function base_set_sys_contracts() {
        
-	$cli_path/./baic_cli wallet unlock -n baic --password $walletpwd 2>/dev/null
-	$cli_path/./baic_cli set contract baic.token ~/ ~/baic.token.wasm ~/baic.token.abi  -p  baic.token
-	$cli_path/./baic_cli set contract baic.dusd ~/ ~/baic.dusd.wasm ~/baic.dusd.abi  -p  baic.dusd
-	$cli_path/./baic_cli set contract baic.msig ~/ ~/baic.msig.wasm ~/baic.msig.abi  -p  baic.msig
-	$cli_path/./baic_cli set contract baic.sudo ~/ ~/baic.sudo.wasm ~/baic.sudo.abi  -p  baic.sudo
-	$cli_path/./baic_cli set contract baic.high ~/ ~/baic.token.high.wasm ~/baic.token.high.abi  -p  baic.high
-	$cli_path/./baic_cli set contract baic ~/ ~/baic.system.wasm ~/baic.system.abi  -p  baic -x 1000
+	$cli_path/./$baic_cli wallet unlock -n baic --password $walletpwd 2>/dev/null
+	$cli_path/./$baic_cli set contract baic.token ~/ ~/baic.token.wasm ~/baic.token.abi  -p  baic.token
+	$cli_path/./$baic_cli set contract baic.dusd ~/ ~/baic.dusd.wasm ~/baic.dusd.abi  -p  baic.dusd
+	$cli_path/./$baic_cli set contract baic.msig ~/ ~/baic.msig.wasm ~/baic.msig.abi  -p  baic.msig
+	$cli_path/./$baic_cli set contract baic.sudo ~/ ~/baic.sudo.wasm ~/baic.sudo.abi  -p  baic.sudo
+	$cli_path/./$baic_cli set contract baic.high ~/ ~/baic.token.high.wasm ~/baic.token.high.abi  -p  baic.high
+	$cli_path/./$baic_cli set contract baic ~/ ~/baic.system.wasm ~/baic.system.abi  -p  baic -x 1000
 }
 
 function init_base() {
 	echo '==========base new wallet =================='
-	base_new_wallet
+	base_new_wallet "baic" $G_baic_owner_private_key $G_baic_active_private_key
+	sleep 1
 	echo '==========base_create_sys_accounts=========='
+	sleep 1
 	base_create_sys_accounts
 	echo '==========base_set_sys_contracts============'
+	sleep 2
 	base_set_sys_contracts
 }
 
 function raise_token() {
 	issuer=$1
-	token_name=$2
-	max_supply=$3
+	max_supply=$2
+	token_contract=$3
 
-	$cli_path/./baic_cli wallet unlock -n $issuer --password $walletpwd 2>/dev/null
+	echo "token_contract: $token_contract"
+
+	
+	param='{"issuer":"'$issuer'", "maximum_supply":"'$max_supply'"}'
+	echo "$cli_path/./$baic_cli push action \'$token_contract\'  create  \"$param\" -p baic.token"
+	$cli_path/./$baic_cli push action $token_contract  create  "$param" -p $token_contract #this must be baic.token
+	
 	sleep 1
 	
-	param='{"issuer":"'$issuer'", "maximum_supply":"'$max_supply' '$token_name'"}'
-	echo "$cli_path/./baic_cli push  action baic.token  create  $param -p baic.token"
-	$cli_path/./baic_cli push  action baic.token  create  "$param" -p baic.token #this must be baic.token
-	
+	param='["'$issuer'", "'$max_supply'", "issue the new token"]'
+	echo "$cli_path/./$baic_cli push action $token_contract  issue \"$param\" -p $issuer"
+	$cli_path/./$baic_cli push action $token_contract issue "$param" -p $issuer
 	sleep 1
+}
+
+function issue_token() {
+	issuer=$1
+	max_supply=$2
+	token_contract=$3
+
 	
-	#./baic_cli push  action baic.token  create  '{"baic", "1000000000.000000000 BAIC"}' -p baic.token
-	
-	param='["'$issuer'", "'$max_supply' '$token_name'", "issue the new token"]'
-	echo "$cli_path/./baic_cli push  action baic.token  issue $param -p baic.token"
-	$cli_path/./baic_cli push  action baic.token  issue "$param" -p $issuer
+	param='["'$issuer'", "'$max_supply'", "issue the new token"]'
+	echo "$cli_path/./$baic_cli push  action $token_contract  issue $param -p $issuer"
+	$cli_path/./$baic_cli push  action $token_contract issue "$param" -p $issuer
 	sleep 1
 }
 
 function system_new_accounts_with_wallet() {
-	echo "input your account name"
-	read account
-	if [ ${#account} -lt 1 ]; then
-		echo "Please input your account."
-		exit
-	fi
-	
-	echo "please input your owner pub key:"
-	read owner_pub owner_private
-	if [ ${#owner_pub} -lt 1 ]; then
-		echo "Please input your owner public key."
-		exit
-	fi
-	if [ ${#owner_private} -lt 1 ]; then
-		echo "Please input your owner private key."
-		exit
-	fi
+	if [ $_CONF == "true" ]; then
+		account=$G_new_account_name
+		owner_pub=$G_owner_public_key
+		owner_private=$G_owner_private_key
+		active_pub=$G_active_public_key
+		active_private=$G_active_private_key
+		stake_cpu_dusd=$G_stake_cpu_dusd
+		stake_net_dusd=$G_stake_net_dusd
+		stake_ram_dusd=$G_stake_ram_dusd
+		signer=$G_signer
+		signer_owner_private=$G_signer_owner_private
+		signer_active_private=$G_signer_active_private
+	else	
+		echo "input your account name"
+		read account
+		if [ ${#account} -lt 1 ]; then
+			echo "Please input your account."
+			exit
+		fi
+		
+		echo "please input your signer name and signer owner private key and signer active private key (split with space):"
+		read signer signer_owner_private signer_active_private
+		if [ -z $signer ] || [ ${#signer_owner_private} -lt 1 ] || [ ${#signer_active_private} -lt 1 ]; then
+			echo "Please input your signer name and signer owner private key and signer active private key!"
+			exit
+		fi
 
-	echo "please input your active pub key:"
-	read active_pub active_private
-	if [ ${#active_pub} -lt 1 ]; then
-		echo "Please input your active public key."
-		exit
-	fi
-	if [ ${#active_private} -lt 1 ]; then
-		echo "Please input your active private key."
-		exit
+		echo "please input your new account public key and active public key (split with space):"
+		read owner_pub active_pub
+		if [ ${#owner_pub} -lt 1 ] || [ ${#active_pub} -lt 1 ]; then
+			echo "Please input your owner public and active public key!"
+			exit
+		fi
+
+		echo "input your stake net DUSD (recommend to be 0.500000000 DUSD):"
+		read stake_net_dusd
+		echo "input your stake cpu DUSD (recommend to be 0.500000000 DUSD):"
+		read stake_cpu_dusd
+		echo "input your stake ram DUSD (recommend to be 7.500000000 DUSD):"
+		read stake_ram_dusd
+		
 	fi
 	
-	echo  $owner_pub
-	echo  $owner_private
-	echo  $active_pub
-	echo  $active_private
+	base_new_wallet $account $signer_owner_private $signer_active_private
 	
-	$cli_path/./baic_cli system newaccount --transfer --stake-net "0.500000010 DUSD" --stake-cpu "0.500000010 DUSD" --buy-ram "7.500000000 DUSD" baic $account $owner_pub $active_pub
+	echo "$cli_path/./$baic_cli system newaccount --transfer --stake-net \"$stake_net_dusd\" --stake-cpu \"$stake_cpu_dusd\" --buy-ram \"$stake_ram_dusd\" $signer $account $owner_pub $active_pub"
+	$cli_path/./$baic_cli system newaccount --transfer --stake-net "$stake_net_dusd" --stake-cpu "$stake_cpu_dusd" --buy-ram "$stake_ram_dusd" $signer $account $owner_pub $active_pub
+	
+	base_new_wallet $account $signer_owner_private $signer_active_private
+
 }
 
 function system_new_accounts() {
@@ -218,15 +314,15 @@ function system_new_accounts() {
 
 	echo $buy_ram_amounts
 	
-	echo "$cli_path/./baic_cli system newaccount --transfer --stake-net "$stake_net_amounts" --stake-cpu "$stake_cpu_amounts" --buy-ram "$buy_ram_amounts" baic $new_user BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
+	echo "$cli_path/./$baic_cli system newaccount --transfer --stake-net "$stake_net_amounts" --stake-cpu "$stake_cpu_amounts" --buy-ram "$buy_ram_amounts" baic $new_user BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
 	
-	$cli_path/./baic_cli system newaccount --transfer --stake-net "$stake_net_amounts" --stake-cpu "$stake_cpu_amounts" --buy-ram "$buy_ram_amounts" baic $new_user BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli system newaccount --transfer --stake-net "$stake_net_amounts" --stake-cpu "$stake_cpu_amounts" --buy-ram "$buy_ram_amounts" baic $new_user BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 }
 
 function get_asset() {
 	user_name=$1
 	echo "$user_name's assert is:"
-	$cli_path/./baic_cli get currency balance baic.token $user_name
+	$cli_path/./$baic_cli get currency balance baic.token $user_name
 }
 
 function check_amount_valid() {
@@ -266,12 +362,13 @@ function check_amount_valid() {
 	blank_cnts=`eval echo $amount|awk  '{s+=gsub(/ /,"&")}END{print s}'`
 	
 	#echo $zero_cnt $blank_cnt
-	if [ $decimal_cnts -ne 9 ]; then
-		echo "Wrong! Decimal cnt of amount must equals to 9 -> i.e 1.000000000"
-		exit
-	elif [ $blank_cnts -ne 1 ]; then
+	#if [ $decimal_cnts -ne 9 ]; then
+	#	echo "Wrong! Decimal cnt of amount must equals to 9 -> i.e 1.000000000"
+	#	exit
+	#elif [ $blank_cnts -ne 1 ]; then
+	if [ $blank_cnts -ne 1 ]; then
 		echo $blank_cnts
-		echo "Wrong! your amount must be format like: 1.000000000 <token name>"
+		echo "Wrong! your amount must be format like: 1.***..  <token name>"
 		exit
 	fi
 
@@ -306,22 +403,19 @@ function print_help() {
 }
 
 function transfer_cash() {
-	choice_which=$1
+	transfer_contract=$1
 	from=$2
 	to=$3
 	amount=$4
 	memo=$5
-	if [ $choice_which == "use_baic.token" ]; then
-		param='["'$from'", "'$to'", "'$amount'","vote"]'
+	if [ $transfer_contract != "baic" ]; then
+		param='["'$from'", "'$to'", "'$amount'","'$memo'"]'
 		#echo "$param"
-		echo "$cli_path/./baic_cli push action baic.token transfer "$param" -p $from"
-		$cli_path/./baic_cli push action baic.token transfer "$param" -p $from
-	elif [ choice_which == "use_original" ]; then
-		echo "$cli_path/./baic_cli transfer $from $to "$amount" "$memo""
-		$cli_path/./baic_cli transfer $from $to "$amount" "$memo"
+		echo "$cli_path/./$baic_cli push action $transfer_contract transfer "$param" -p $from"
+		$cli_path/./$baic_cli push action $transfer_contract transfer "$param" -p $from
 	else
-		echo "Wrong choice $choice_which for transfer!"
-		exit
+		echo "$cli_path/./$baic_cli transfer $from $to "$amount" "$memo""
+		$cli_path/./$baic_cli transfer $from $to "$amount" "$memo"
 	fi
 }
 
@@ -340,226 +434,311 @@ if [ -z $1 ]; then
 
 elif [ $1 == "--conf" ]; then
 	_CONF=true
-	case $1 in 
-		sys_init)
-			input_param=init
-	;;
-		new_account)
-			input_param=newaccount
-	;;
-		new_token)
-			input_param=publish
-	;;
-		issue_token)
-			input_param=issue_token
-	;;
-		transfer)
-			input_param=transfer
-	;;
-		get_account)
-	;;
-		get_code_abi)
-	;;
-		get_transaction)
-	;;
-		*)
-	esac
+	_arr=$g_arr
 else 		
 	_CONF=false
-	input_param=$1
-
+	_arr=$*
 fi
 
+echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
-case $input_param in
-	init)
-		echo "+++INIT BASE++++"
-		init_base
-		exit
-	;;
-	publish)
-		echo
-		echo "++PUBLISH YOUR TOKEN++++"
-		echo
-		
-		if [ $_CONF==true ]; then
-			token=$G_token_name
-		else
-			echo "input your token name(default: DUSD):"
-			token="DUSD"
-			read token
+for _param in ${g_arr[@]}
+do
+	echo "PARAM >>>>>>> $_param"
+	if [ $_CONF == "true" ]; then
+		case $_param in 
+			sys_init)
+				input_param=init
+		;;
+			new_account)
+				input_param=newaccount
+		;;
+			new_token)
+				input_param=publish
+		;;
+			issue_token)
+				input_param=issue_token
+		;;
+			transfer)
+				input_param=transfer
+		;;
+			get_account|get_code_abi|get_transaction)
+				input_param=get
+				_get_choice=$_param
+		;;
+			*)
+		;;
+		esac
+	else
+		input_param=$_param
+	fi
+	echo "input_param: $inpu_param"
+	case $input_param in
+		init)
+			echo "+++INIT BASE++++"
+			init_base
+		;;
+		publish)
+			echo
+			echo "++PUBLISH YOUR TOKEN++++"
+			echo
+			if [ $_CONF == "true" ]; then
+				
+				account=$G_issuer
+				if [ ${#account} -lt 1 ]; then #check length of token string
+					echo "Please give an account name."
+					exit
+				fi
+				
+				base_new_wallet $account $G_issue_owner_private_key $G_issue_active_private_key
+				
+				if [ $G_set_contract == "true" ]; then
+					if [ ! -z $G_buy_ram ]; then
+						$cli_path/./$baic_cli system buyram baic $G_buy_account $G_buy_ram
+					fi
+					
+					if [ ! -z $G_buy_dusd ]; then
+						$cli_path/./$baic_cli transfer baic $G_buy_account $G_buy_dusd
+					fi		
+					
+					$cli_path/./$baic_cli set contract $account $G_contract_path $G_contract_wasm $G_contract_abi
+				fi
 
-		fi
+			else
+				account=""
+				echo "You need publish token to whom(account name):"
+				read account
+				if [ ${#account} -lt 1 ]; then #check length of token string
+					echo "Please give an account name."
+					exit
+				fi
+				
+				echo "do you want to buy ram and dusd in case you have no ram to set contract? ('y' | 'n')"
+				read yes_or_no
+				
+				if [ $yes_or_no != "y" ] && [ $yes_or_no != "n" ]; then
+					echo "wrong input. try 'y' or 'n'"
+					exit
+				fi
 
-		if [ ${#token} -lt 1 ]; then #check length of token string
-			#echo "use default DUSD as your token."
-			#token="DUSD"
-			echo "Please give your token name."
-			exit
-		else
-			echo "use $token as your token."
-		fi
+				echo "input your contract path where store the wasm and abi files: "
+				read contract_path
+				
+				echo "input your wasm file name"
+				read wasm_name
+				echo "input your abi file name"
+				read abi_name
 
-		echo
-		
-		if [ $_CONF==true ]; then
-			account=$G_issuer
-		else
-			account=""
-			echo "You need publish token to whom(account name):"
-			read account
-		fi
+				wasm_path=$contract_path/$wasm_name
+				abi_path=$contract_path/$abi_name
+				
 
-		if [ ${#account} -lt 1 ]; then #check length of token string
-			echo "Please give an account name."
-			exit
-		fi
+				if [ $yes_or_no == "y" ]; then
+					echo "input your buy ram value:"
+					read buy_ram
+					echo "inpit yor buy dusd value:"
+					read buy_dusd
+					
+					base_new_wallet "baic" $G_baic_owner_private_key $G_baic_active_private_key
+					
+					$cli_path/./$baic_cli system buyram baic $account "$buy_ram"
+					$cli_path/./$baic_cli transfer baic $account "$buy_dusd"
+				fi
+				
+				echo "Please give your owner private and active private in one line"
+				read owner_private  active_private
+				base_new_wallet $account $owner_private $active_private
+				
+				echo " $cli_path/./$baic_cli set contract $account $contract_path $G_contract_wasm $G_contract_abi"
+				$cli_path/./$baic_cli set contract $account $contract_path $wasm_path $abi_path
+			fi
 
-		if [ $_CONF==true ]; then
-			base_new_wallet $account $G_owner_private_key $G_active_private_key
 
-			raise_token $account $G_token_name $G_token_supply
-		else
-			echo "Please give your owner private and active private in one line"
-			read owner_private  active_private
-			base_new_wallet $account $owner_private $active_private
+			if [ $_CONF == "true" ]; then
+				#base_new_wallet $account $G_issue_owner_private_key $G_issue_active_private_key
+
+				raise_token $account "$G_token_supply" $G_token_contract
+			else
+				#echo "Please give your owner private and active private in one line"
+				#read owner_private  active_private
+				base_new_wallet $account $owner_private $active_private
+				
+				echo "please give your max supply (i,e 11.000000000 <token name>)"
+				read max_supply
+				
+				echo "please input your token contract name: i.e baic.token, dma.music, cmux..."
+				read token_contract
+				
+				echo "token_contract: $token_contract"
+				raise_token $account $token "$max_supply" $token_contract 
+			fi
+		;;
+		issue_token)
+			echo
+			echo "++ISSUE YOUR TOKEN++++"
+			echo
 			
-			#a='111|222|333'
-			#OIFS=$IFS; IFS="|"; set -- $result; ownerpub=$1;ownerpriv=$2;actpub=$3; actpri=$4;IFS=$OIFS 
-			#echo "system_new_accounts_with_wallet: result: $result"
-		        #echo "( $ownerpub  $ownerpriv  $actpub  $actpri )" 
-			#exit
-			echo "please give your max supply (i,e 11.000000000 <token name>)"
-			read max_supply
+			if [ $_CONF == "true" ]; then
+				account=$G_issuer
+			else
+				echo "You need publish token to whom(account name):"
+				read account
+			fi
 
-			raise_token $account $token $max_supply
-		fi
+			if [ ${#account} -lt 1 ]; then #check length of token string
+				echo "Please give an account name."
+				exit
+			fi
 
-		exit
-	;;
-	issue_token)
-	;;	
-	get)
-		echo "input your choice"
-		echo "1. account and currency"
-		echo "2. transaction"
-		Arg=""
-		read Arg
-		case $Arg in
-			1)
-				echo "Input user name:"
-				username=""
-				read username
-				echo
-				$cli_path/./baic_cli get account $username
+			if [ $_CONF == "true" ]; then
+				base_new_wallet $account $G_issue_owner_private_key $G_issue_active_private_key
+
+				issue_token $account $G_token_supply $G_token_contract
+			else
+				echo "Please give your owner private and active private in one line"
+				read owner_private  active_private
+				base_new_wallet $account $owner_private $active_private
+				
+				echo "please give your max supply (i,e 11.000000000 <token name>)"
+				read max_supply
+				
+				echo "please input your token contract name: i.e baic.token, dma.music, cmux..."
+				read token_contract
+
+				issue_token $account $max_supply $token_contract 
+			fi
+		;;	
+		get)
+
+			if [ $_CONF == "true" ]; then
+				username=$G_account
+				contractname=$G_contract
+				trx_id=$G_trx_id
+				choice=$_get_choice
+				save_code=$G_save_code
+				save_abi=$G_save_abi
+			else
+				echo "input your choice"
+				echo "1. account and currency"
+				echo "2. transaction"
+				echo "3. code and abi"
+				Arg=""
+				read Arg
+				case $Arg in
+					1 | 3)
+						choice=get_account
+						echo "Input user name:"
+						username=""
+						read username
+						echo
+						echo "Input your token contract name:"
+						read contractname
+					;;
+					2)
+						choice=get_transaction
+						echo "Put your transaction ID:"
+						read trx_id
+						echo $trx_id
+						echo
+					;;
+					3)
+						choice=get_code_abi
+						echo "Put your contract name:"
+						read contractname
+						echo $contractname
+						echo
+						echo "Put your save/to wasm and abi file name (split with blank)"
+						read save_code save_abi
+					;;
+					*) #default case
+						echo "Wrong choice. Please try again."
+					;;
+				esac
+			fi	
+			
+			if [ $choice == "get_account" ]; then
+				$cli_path/./$baic_cli get account $username
 				echo "asset of $username:"
-				$cli_path/./baic_cli get currency balance baic.token $username
+				$cli_path/./$baic_cli get currency balance $contractname $username
 				echo
-			;;
-			2)
-				echo "Put your transaction ID:"
-				read trx_id
-				echo $trx_id
-				$cli_path/./baic_cli get transaction $trx_id
+			elif [ $choice == "get_code_abi" ]; then
+				echo "+++++ CODE +++++++"
+				$cli_path/./$baic_cli get code $contractname -c $save_code -a $save_abi --wasm
 				echo
-			;;
-			*) #default case
-				echo "Wrong choice. Please try again."
-			;;
-		esac	
-	;;
-	newaccount)
-		
-		if [ ! -z $2 ] && [ $2 == "--with-wallet" ]; then
-
-			system_new_accounts_with_wallet
-
-			base_new_wallet $username $owner_private $active_private
-			#a='111|222|333'
-			#OIFS=$IFS; IFS="|"; set -- $result; ownerpub=$1;ownerpriv=$2;actpub=$3; actpri=$4;IFS=$OIFS 
-			#echo "system_new_accounts_with_wallet: result: $result"
-		        #echo "( $ownerpub  $ownerpriv  $actpub  $actpri )" 
-			#exit
-		exit
-		fi
-
-
-		echo "please input your new account:"
-		username=""
-		read username
-		#echo "please input your token name(default is DUSD)"
-		#token_name="DUSD"
-		#read token_name
-		#if [ ${#token_name} -lt 1 ]; then
-		#	token_name="DUSD"
-		#	echo "use DUSD as your token"
-		#else
-		#	echo "use $token_name as your token."
-		#fi
-	
-		echo "input your stake-net amount, i.e 3.000000000 DUSD"
-		read stake_net_amounts
-
-		check_amount_valid $stake_net_amounts
-		
-		echo "input your stake-cpu amount, i.e 3.000000000 DUSD"
-		read stake_cpu_amounts
-		check_amount_valid $stake_cpu_amounts
-
-		echo "input your buy-ram amount, i.e 3.000000000 DUSD"
-		read buy_ram_amounts
-		check_amount_valid $buy_ram_amounts
-
-		#echo $stake_net_amount "|" $stake_cpu_amount "|"  $buy_ram_amount
-		
-		echo "+++SYS NEW ACCOUNT: $username ++++"
-		echo
-
-		base_new_wallet
-		
+				echo "+++++ ABI ++++++++"
+				$cli_path/./$baic_cli get abi $contractname
+				echo
+			elif [ $choice == "get_transaction" ]; then
+				$cli_path/./$baic_cli get transaction $trx_id
 			
-		system_new_accounts $username $stake_net_amounts $stake_cpu_amounts $buy_ram_amounts
-		exit
-	;;
-	transfer)
-		from="baic"
-		to=""
-		amount=""
-		memo=""
-		echo "input your from user"
-		read from
-		if [ ${#from} -lt 1 ]; then
-			echo "Wrong! Please input your from user."
+			fi
+		;;
+		newaccount)
+			
+			system_new_accounts_with_wallet
+			
+		;;
+		transfer)
+			if [ $_CONF == "true" ]; then
+				from=$G_from
+				to=$G_to
+				amount=$G_amount
+				memo=$G_memo
+				from_owner_private_key=$G_from_owner_private_key
+				from_active_private_key=$G_from_active_private_key
+				transfer_contract=$G_transfer_contract
+			else 
+				from=""
+				to=""
+				amount=""
+				memo=""
+				echo "input your from user"
+				read from
+				if [ ${#from} -lt 1 ]; then
+					echo "Wrong! Please input your from user."
+					exit
+				fi
+				echo "input your to (receiver) user"
+				read to
+				if [ ${#to} -lt 1 ]; then
+					echo "Wrong! Please input your receiver user."
+					exit
+				fi
+				echo "input your from user owner private key and active private key (split with space)"
+				read from_owner_private_key from_active_private_key
+				
+				echo "input your amount(i.e "2.000000000 DUSD")"
+				read amount
+				echo "check:$amount"
+				check_amount_valid $amount	
+
+				echo "input your memo"
+				read memo
+				
+				echo "imput your transfer contract name:"
+				read transfer_contract
+				#transfer_contract="baic" //decimal * 18
+				#transfer_contract="baic.token" //decimal * 9
+			fi
+
+			base_new_wallet $from $from_owner_private_key $from_active_private_key
+			#base_new_wallet $to_owner_private_key $to_active_private_key
+			transfer_cash $transfer_contract $from $to "$amount" "$memo"
+		;;	
+		*) #default case
+			echo "DEFAULT!"
+			print_help
 			exit
-		fi
-		echo "input your to (receiver) user"
-		read to
-		if [ ${#to} -lt 1 ]; then
-			echo "Wrong! Please input your receiver user."
-			exit
-		fi
-		
-		echo "input your amount(i.e "2.000000000 DUSD")"
-		read amount
-		echo "check:$amount"
-		check_amount_valid $amount	
+		;;
+		esac
 
-		echo "input your memo"
-		read memo
-		
-		choice_which="use_baic.token"
-		#choice_which="use orignal"
-
-		base_new_wallet $from
-		base_new_wallet $to
-		transfer_cash $choice_which $from $to "$amount" "$memo"
-	;;	
-	*) #default case
-		print_help
-		exit
-	;;
-	esac
-
+		echo
+		echo -e "\033[32m==================================================================================== \033[0m"
+		echo -e "\033[32m=====================       Press any key to continue!      ======================== \033[0m"
+		echo -e "\033[32m==================================================================================== \033[0m"
+		echo
+		char=`get_char`
+done
 
 
 
