@@ -4,6 +4,59 @@
 ##################################################################################
 
 g_arr=()
+
+G_new_account_name=()
+G_new_account_name_cnt=0
+
+G_owner_public_key=()
+G_owner_public_key_cnt=0
+
+G_owner_private_key=()
+G_owner_private_key_cnt=0
+
+G_active_public_key=()
+G_active_public_key_cnt=0
+
+G_active_private_key=()
+G_active_private_key_cnt=0
+
+G_transfer_contract=()
+G_transfer_contract_cnt=0
+
+G_from=()
+G_from_cnt=0
+
+G_to=()
+G_to_cnt=0
+
+G_amount=()
+G_amount_cnt=0
+
+G_from_owner_private_key=()
+G_from_owner_private_key_cnt=0
+
+G_from_active_private_key=()
+G_from_active_private_key_cnt=0
+
+G_issuer=()
+G_issuer_cnt=0
+
+G_buy_account=()
+G_buy_account_cnt=0
+
+G_token_contract=()
+G_token_contract_cnt=0
+
+G_issue_owner_private_key=()
+G_issue_owner_private_key_cnt=0
+
+G_issue_active_private_key=()
+G_issue_active_private_key_cnt=0
+
+G_token_supply=()
+G_token_supply_cnt=0
+
+
 # cli path
 cli_path=/home/lyp/new_baic_chain/Baic-Chain/build/programs/baic_cli
 wallet_url=http://127.0.0.1:20188 #--wallet-url http://10.101.2.69:8900, only for account baicpay
@@ -25,18 +78,32 @@ G_wallet_path=/home/lyp/code_baic_chain/Baic-Chain/build/programs/nodeos/lypdata
 #++++ new_account +++++#
 
 # passed both in manual & conf
+##
+G_new_account_name[${#G_new_account_name[*]}]=testa
+G_owner_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+G_owner_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+G_active_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+G_active_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 
-G_new_account_name=testccf
+##
+G_new_account_name[${#G_new_account_name[*]}]=testb
+G_owner_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+G_owner_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+G_active_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+G_active_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+
+##
+G_new_account_name[${#G_new_account_name[*]}]=testc
+G_owner_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+G_owner_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+G_active_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+G_active_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+
 
 G_signer=baic
 G_signer_owner_private=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 G_signer_active_private=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 
-G_owner_public_key=BAIC6riyy91vEZHMR7dtQdRGxYE3XqUHevmCPhToDapdYvHp1ZLgcd
-G_owner_private_key=5JvuWRU7ndEuLA9PSgv82oKSWE5M8Yg7LZmZmmvWJzJpc1UsYZ6
-
-G_active_public_key=BAIC8RLAzY3ury6SVipebeAwh7bcQEYcvv5UQMpNM37hmjKeXn4oSD
-G_active_private_key=5Hvn2YhWsqTGarG3TJsdDFEpGiR3AiHZ7Q7e8tGsFE5y7ftyL38
 
 G_stake_net_dusd="0.500000000 DUSD"
 G_stake_cpu_dusd="0.500000000 DUSD"
@@ -46,32 +113,53 @@ G_stake_ram_dusd="7.500000000 DUSD"
 
 # passed both in manual & conf
 
-G_issuer=$G_new_account_name
-G_buy_account=$G_new_account_name
-G_token_contract=$G_new_account_name
+##
+G_issuer[${#G_issuer[*]}]=baic
+G_set_contract[${#G_issuer[*]}]=false #for system accounts, put false.
+G_buy_account[${#G_issuer[*]}]=baic
+G_token_contract[${#G_issuer[*]}]=baic.token
 
-G_issue_owner_private_key=5JvuWRU7ndEuLA9PSgv82oKSWE5M8Yg7LZmZmmvWJzJpc1UsYZ6
-G_issue_active_private_key=5Hvn2YhWsqTGarG3TJsdDFEpGiR3AiHZ7Q7e8tGsFE5y7ftyL38
+G_issue_owner_private_key[${#G_issuer[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+G_issue_active_private_key[${#G_issuer[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 
-G_set_contract=true
+G_token_supply[${#G_issuer[*]}]="9999.999999999 DUSD"
+
+##
+G_issuer[${#G_issuer[*]}]=testa
+G_set_contract[${#G_issuer[*]}]=true
+G_buy_account[${#G_issuer[*]}]=testb
+G_token_contract[${#G_issuer[*]}]=testa
+
+G_issue_owner_private_key[${#G_issuer[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+G_issue_active_private_key[${#G_issuer[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+
+G_token_supply[${#G_issuer[*]}]="9999.999999999 TESTA"
 
 G_contract_path="/home/lyp"
 G_contract_wasm="/home/lyp/baic.token.wasm"
 G_contract_abi="/home/lyp/baic.token.abi"
 G_buy_ram="280.000000000 DUSD"
 G_buy_dusd="3.000000000 DUSD"
-G_token_supply="9999.999999999 DUSD"
 
 #++++  transfer    +++++#
 
 # passed both in manual & conf
 
-G_transfer_contract="baic.token"
-G_from="baic"
-G_to="testccf"
-G_amount="1.00000000 DUSD"
-G_from_owner_private_key=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-G_from_active_private_key=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+##
+G_transfer_contract[${#G_transfer_contract[*]}]="baic.token"
+G_from[${#G_transfer_contract[*]}]="baic"
+G_to[${#G_transfer_contract[*]}]="testa"
+G_amount[${#G_transfer_contract[*]}]="10.00000000 DUSD"
+G_from_owner_private_key[${#G_transfer_contract[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+G_from_active_private_key[${#G_transfer_contract[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+
+##
+G_transfer_contract[${#G_transfer_contract[*]}]="testa"
+G_from[${#G_transfer_contract[*]}]="testa"
+G_to[${#G_transfer_contract[*]}]="testb"
+G_amount[${#G_transfer_contract[*]}]="1.00000000 TESTA"
+G_from_owner_private_key[${#G_transfer_contract[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+G_from_active_private_key[${#G_transfer_contract[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 
 #++++  get_account  +++++#
 #++++ get_transaction +++#
@@ -85,17 +173,23 @@ G_trx_id=17c896f854516347c07db0dc624e4da043c8343feb4b782b11f0c3b77f0a4987
 G_save_code="code.wasm"
 G_save_abi="code.abi"
 
-
 ###########################    YOUR CHOICE    ###################################
 
 g_arr[${#g_arr[*]}]=sys_init
-g_arr[${#g_arr[*]}]=transfer
+
 g_arr[${#g_arr[*]}]=new_token
-g_arr[${#g_arr[*]}]=new_account
 g_arr[${#g_arr[*]}]=transfer
-g_arr[${#g_arr[*]}]=get_account
-g_arr[${#g_arr[*]}]=get_transaction
-g_arr[${#g_arr[*]}]=get_code_abi
+
+g_arr[${#g_arr[*]}]=new_token
+
+g_arr[${#g_arr[*]}]=new_account
+g_arr[${#g_arr[*]}]=new_account
+g_arr[${#g_arr[*]}]=new_account
+
+#g_arr[${#g_arr[*]}]=transfer
+#g_arr[${#g_arr[*]}]=get_account
+#g_arr[${#g_arr[*]}]=get_transaction
+#g_arr[${#g_arr[*]}]=get_code_abi
 
 #g_arr[${#arr[*]}]=
 #g_arr[${#arr[*]}]=
@@ -229,7 +323,7 @@ function raise_token() {
 
 	
 	param='{"issuer":"'$issuer'", "maximum_supply":"'$max_supply'"}'
-	echo "$cli_path/./$baic_cli push action \'$token_contract\'  create  \"$param\" -p baic.token"
+	echo "$cli_path/./$baic_cli push action \'$token_contract\'  create  \"$param\" -p $token_contract"
 	$cli_path/./$baic_cli push action $token_contract  create  "$param" -p $token_contract #this must be baic.token
 	
 	sleep 1
@@ -254,7 +348,7 @@ function issue_token() {
 
 function system_new_accounts_with_wallet() {
 	if [ $_CONF == "true" ]; then
-		account=$G_new_account_name
+		account=$G_new_account_name[$G_new_account_name_cnt]
 		owner_pub=$G_owner_public_key
 		owner_private=$G_owner_private_key
 		active_pub=$G_active_public_key
@@ -302,7 +396,8 @@ function system_new_accounts_with_wallet() {
 	$cli_path/./$baic_cli system newaccount --transfer --stake-net "$stake_net_dusd" --stake-cpu "$stake_cpu_dusd" --buy-ram "$stake_ram_dusd" $signer $account $owner_pub $active_pub
 	
 	base_new_wallet $account $signer_owner_private $signer_active_private
-
+	
+	G_new_account_name = `expr $G_new_account_name + 1`
 }
 
 function system_new_accounts() {
@@ -492,7 +587,7 @@ do
 				
 				base_new_wallet $account $G_issue_owner_private_key $G_issue_active_private_key
 				
-				if [ $G_set_contract == "true" ]; then
+				if [ $G_set_contract == "true" ] && [ $G_buy_account != baic ] && [ "$G_buy_account != baicpay" ] && [ $G_buy_account != "baic.token" ]; then
 					if [ ! -z $G_buy_ram ]; then
 						$cli_path/./$baic_cli system buyram baic $G_buy_account $G_buy_ram
 					fi
@@ -500,9 +595,9 @@ do
 					if [ ! -z $G_buy_dusd ]; then
 						$cli_path/./$baic_cli transfer baic $G_buy_account $G_buy_dusd
 					fi		
-					
-					$cli_path/./$baic_cli set contract $account $G_contract_path $G_contract_wasm $G_contract_abi
 				fi
+
+				$cli_path/./$baic_cli set contract $account $G_contract_path $G_contract_wasm $G_contract_abi
 
 			else
 				account=""
