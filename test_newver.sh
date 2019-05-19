@@ -242,30 +242,22 @@ function get_json_info() {
 ##########################   CONFIGURATION  END #####################################
 
 #++++ sys_init ++++++++#
-
-# passed test both in manual & conf
-
 #++++ new_account +++++#
-
-
-#++++ new_token / issue_token  +++++#
-
-#++++  transfer    +++++#
-
-# passed both in manual & conf
-
-
-#++++  get_account  +++++#
+#++++ new_token   +++++#
+#++++ issue_token +++++#
+#++++ transfer    +++++#
+#++++ get_account +++++#
 #++++ get_transaction +++#
-#++++  get_code_abi +++++#
+#++++ get_code_abi ++++#
 
 # passed both in manual & conf
 
 ###########################    YOUR CHOICE    ###################################
 
-g_arr[${#g_arr[*]}]="sys_init"
+#g_arr[${#g_arr[*]}]="sys_init"
 
-#g_arr[${#g_arr[*]}]="new_account testa"
+g_arr[${#g_arr[*]}]="new_token TESTA"
+
 #g_arr[${#g_arr[*]}]="new_account testb"
 #g_arr[${#g_arr[*]}]="new_account testc"
 
@@ -682,9 +674,11 @@ if [ $_CONF == "false" ]; then
 	g_arr[${#g_arr[@]}]=$1
 fi
 
-for _param in ${g_arr[@]}
+for _params in "${g_arr[@]}"
 do
-	echo "PARAM >>>>>>> $_param"
+	_param=`echo $_params|awk -F ' ' '{print $1}' `
+	_argv=`echo $_params|awk -F ' ' '{print $2}' `
+	echo "PARAM >>>>>>> $_param, >>>>>>_argvs: $_argv"
 	if [ $_CONF == "true" ]; then
 		case $_param in 
 			sys_init)
