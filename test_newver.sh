@@ -4,72 +4,207 @@
 ##################################################################################
 
 g_arr=()
+#--wallet-url http://10.101.2.69:8900, only for account bpay
 
-G_new_account_name=()
-G_new_account_name_cnt=0
+G_config='{
+	"G_base_info": {
+		"cli_path":"/home/lyp/new_baic_chain/Baic-Chain/build/programs/baic_cli",
+		"data_path":"./lypdata",
+		"wallet_url":"http://127.0.0.1:20188", 
+		"baic_cli":"baic_cli --wallet-url http://127.0.0.1:20188 --url http://127.0.0.1:20188"
+	},
+	"G_account_info":{
+				"baic":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.token":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.dusd":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.msig":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.sudo":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.high":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.pool":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.vpay":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.stake":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.saving":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.ram":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.ramfree":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.names":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.bpay":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"baic.names":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"testa":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"testb":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					},
+				"testc":{
+						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"stake_net":"0.500000000 DUSD",
+						"stake_cpu":"0.500000000 DUSD",
+						"stake_ram":"7.500000000 DUSD"
+					}
+					
+	},
+	"G_transfer_info": {	
+				"trans_a": {
+						"from": "baic",
+						"to":"testa",
+						"contract":"baic.token",
+						"amount":"1.000000000 DUSD"
+					},
+				"trans_b": {
+						"from": "testa",
+						"to":"testb",
+						"contract":"testa",
+						"amount":"1.000000000 TESTA"
+					},
+				"trans_c":{
+						"from": "testb",
+						"to":"testc",
+						"contract":"testa",
+						"amount":"1.000000000 TESTA"
+					},
+				"trans_d":{
+						"from": "testa",
+						"to":"testc",
+						"contract":"testa",
+						"amount":"1.000000000 TESTA"
+					}
+					
+	},
+	"G_publish_token_info": {
+			"HEMP":{
+				"issuer":"baic",
+				"buyer":"hemp",
+				"contract":"hemp",
+				"contract_wasm":"/root/baic.token.wasm",
+				"contract_abi":"/root/baic.token.abi",
+				"need_buy_ram":{
+					"need_or_not":true,
+					"amount":"280.000000000 DUSD"
+				},
+				"need_earn_dusd":{
+					"need_or_not":true,
+					"amount":"3.000000000 DUSD"
+				},
+				"amount": "2000000.0000 HEMP"
+			}
+	}
+}'
 
-G_owner_public_key=()
-G_owner_public_key_cnt=0
+function get_json_info() {
+	config=$1
+	keyword=$2
+	#echo "echo G_onfig|jq .$keyword"
+	value=`echo "$config"|jq '.'$keyword''`
+	#echo "key: $keyword"
+	#echo "value: $value"
+	
+	value=${value//\"/}
+	echo $value
+}
 
-G_owner_private_key=()
-G_owner_private_key_cnt=0
+#value=`echo "$G_config"|jq '.acc'`
+#value=`echo "$G_config"|jq '."ac.c"'`
 
-G_active_public_key=()
-G_active_public_key_cnt=0
-
-G_active_private_key=()
-G_active_private_key_cnt=0
-
-G_transfer_contract=()
-G_transfer_contract_cnt=0
-
-G_from=()
-G_from_cnt=0
-
-G_to=()
-G_to_cnt=0
-
-G_amount=()
-G_amount_cnt=0
-
-G_from_owner_private_key=()
-G_from_owner_private_key_cnt=0
-
-G_from_active_private_key=()
-G_from_active_private_key_cnt=0
-
-G_issuer=()
-G_issuer_cnt=0
-
-G_buy_account=()
-G_buy_account_cnt=0
-
-G_token_contract=()
-G_token_contract_cnt=0
-
-G_issue_owner_private_key=()
-G_issue_owner_private_key_cnt=0
-
-G_issue_active_private_key=()
-G_issue_active_private_key_cnt=0
-
-G_token_supply=()
-G_token_supply_cnt=0
-
-
-# cli path
-cli_path=/home/lyp/new_baic_chain/Baic-Chain/build/programs/baic_cli
-wallet_url=http://127.0.0.1:20188 #--wallet-url http://10.101.2.69:8900, only for account baicpay
-url=http://127.0.0.1:20188
-baic_cli="baic_cli --wallet-url $wallet_url --url $url"
-
-##########################   CONFIGURATION   #####################################
-
-G_baic_owner_public_key=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-G_baic_owner_private_key=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-G_baic_active_public_key=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-G_baic_active_private_key=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-G_wallet_path=/home/lyp/code_baic_chain/Baic-Chain/build/programs/nodeos/lypdata
+##########################   CONFIGURATION  END #####################################
 
 #++++ sys_init ++++++++#
 
@@ -77,114 +212,32 @@ G_wallet_path=/home/lyp/code_baic_chain/Baic-Chain/build/programs/nodeos/lypdata
 
 #++++ new_account +++++#
 
-# passed both in manual & conf
-##
-G_new_account_name[${#G_new_account_name[*]}]=testa
-G_owner_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-G_owner_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-G_active_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-G_active_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-
-##
-G_new_account_name[${#G_new_account_name[*]}]=testb
-G_owner_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-G_owner_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-G_active_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-G_active_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-
-##
-G_new_account_name[${#G_new_account_name[*]}]=testc
-G_owner_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-G_owner_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-G_active_public_key[${#G_new_account_name[*]}]=BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-G_active_private_key[${#G_new_account_name[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-
-
-G_signer=baic
-G_signer_owner_private=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-G_signer_active_private=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-
-
-G_stake_net_dusd="0.500000000 DUSD"
-G_stake_cpu_dusd="0.500000000 DUSD"
-G_stake_ram_dusd="7.500000000 DUSD"
 
 #++++ new_token / issue_token  +++++#
-
-# passed both in manual & conf
-
-##
-G_issuer[${#G_issuer[*]}]=baic
-G_set_contract[${#G_issuer[*]}]=false #for system accounts, put false.
-G_buy_account[${#G_issuer[*]}]=baic
-G_token_contract[${#G_issuer[*]}]=baic.token
-
-G_issue_owner_private_key[${#G_issuer[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-G_issue_active_private_key[${#G_issuer[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-
-G_token_supply[${#G_issuer[*]}]="9999.999999999 DUSD"
-
-##
-G_issuer[${#G_issuer[*]}]=testa
-G_set_contract[${#G_issuer[*]}]=true
-G_buy_account[${#G_issuer[*]}]=testb
-G_token_contract[${#G_issuer[*]}]=testa
-
-G_issue_owner_private_key[${#G_issuer[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-G_issue_active_private_key[${#G_issuer[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-
-G_token_supply[${#G_issuer[*]}]="9999.999999999 TESTA"
-
-G_contract_path="/home/lyp"
-G_contract_wasm="/home/lyp/baic.token.wasm"
-G_contract_abi="/home/lyp/baic.token.abi"
-G_buy_ram="280.000000000 DUSD"
-G_buy_dusd="3.000000000 DUSD"
 
 #++++  transfer    +++++#
 
 # passed both in manual & conf
 
-##
-G_transfer_contract[${#G_transfer_contract[*]}]="baic.token"
-G_from[${#G_transfer_contract[*]}]="baic"
-G_to[${#G_transfer_contract[*]}]="testa"
-G_amount[${#G_transfer_contract[*]}]="10.00000000 DUSD"
-G_from_owner_private_key[${#G_transfer_contract[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-G_from_active_private_key[${#G_transfer_contract[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-
-##
-G_transfer_contract[${#G_transfer_contract[*]}]="testa"
-G_from[${#G_transfer_contract[*]}]="testa"
-G_to[${#G_transfer_contract[*]}]="testb"
-G_amount[${#G_transfer_contract[*]}]="1.00000000 TESTA"
-G_from_owner_private_key[${#G_transfer_contract[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-G_from_active_private_key[${#G_transfer_contract[*]}]=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 
 #++++  get_account  +++++#
 #++++ get_transaction +++#
 #++++  get_code_abi +++++#
 
- # passed both in manual & conf
-
-G_account="testccf"
-G_contract="testbbb"
-G_trx_id=17c896f854516347c07db0dc624e4da043c8343feb4b782b11f0c3b77f0a4987
-G_save_code="code.wasm"
-G_save_abi="code.abi"
+# passed both in manual & conf
 
 ###########################    YOUR CHOICE    ###################################
 
-g_arr[${#g_arr[*]}]=sys_init
+g_arr[${#g_arr[*]}]="sys_init"
 
-g_arr[${#g_arr[*]}]=new_token
-g_arr[${#g_arr[*]}]=transfer
+g_arr[${#g_arr[*]}]="new_account testa"
+g_arr[${#g_arr[*]}]="new_account testb"
+g_arr[${#g_arr[*]}]="new_account testc"
 
-g_arr[${#g_arr[*]}]=new_token
+#g_arr[${#g_arr[*]}]=new_token "HEMP"
+#g_arr[${#g_arr[*]}]=transfer "trans_a"
 
-g_arr[${#g_arr[*]}]=new_account
-g_arr[${#g_arr[*]}]=new_account
-g_arr[${#g_arr[*]}]=new_account
+#g_arr[${#g_arr[*]}]=new_token
 
 #g_arr[${#g_arr[*]}]=transfer
 #g_arr[${#g_arr[*]}]=get_account
@@ -204,6 +257,10 @@ owner_pub=""
 owner_private=""
 active_pub=""
 active_private=""
+
+wallet_path=`get_json_info "$G_config" "G_base_info.data_path"`
+cli_path=`get_json_info "$G_config" "G_base_info.cli_path"`
+baic_cli=`get_json_info "$G_config" "G_base_info.baic_cli"`
 
 get_char()
 {
@@ -225,12 +282,12 @@ function base_new_wallet() {
 	echo `./baic_cli wallet list|wc -l`
 	echo "========================================"
 	
-	if [ -z $G_wallet_path ]; then
-		echo "Please set your 'G_wallet_path' value where store your wallet file!"
+	if [ -z $wallet_path ]; then
+		echo "Please set your 'data_path' value where store your wallet file!"
 		exit
 	fi	
 	
-	rm -rf $G_wallet_path/*.wallet
+	rm -rf $wallet_path/*.wallet
 
 	#walletpwd=$G_wallet_password
 	
@@ -274,37 +331,83 @@ function base_new_wallet() {
 }
 
 function base_create_sys_accounts() {
-
-	$cli_path/./$baic_cli create account baic baic.dusd BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./$baic_cli create account  baic baic.bpay BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./$baic_cli create account  baic  baic.msig BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./$baic_cli create account  baic baic.names BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	 $cli_path/./$baic_cli create account  baic baic.ram BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./$baic_cli create account  baic baic.ramfee BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./$baic_cli create account  baic baic.saving BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./$baic_cli create account  baic baic.stake BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./$baic_cli create account  baic baic.token BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./$baic_cli create account  baic baic.vpay BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./$baic_cli create account  baic baic.sudo BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./$baic_cli create account  baic baic.high BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-	$cli_path/./$baic_cli create account  baic baic.pool BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.dusd'.pub_key"`
+	pri_key=`get_json_info $G_config "G_account_info.baic.pri_key"`
+	$cli_path/./$baic_cli create account baic baic.dusd $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.pay'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.'baic.pay'.pri_key"
+	$cli_path/./$baic_cli create account  baic baic.bpay $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.msig'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.baic.pri_key"
+	$cli_path/./$baic_cli create account  baic  baic.msig $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.names'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.'baic.names'.pri_key"
+	$cli_path/./$baic_cli create account  baic baic.names $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.ram'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.'baic.ram'.pri_key"
+	$cli_path/./$baic_cli create account  baic baic.ram $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.ramfee'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.'baic.ramfee'.pri_key"
+	$cli_path/./$baic_cli create account  baic baic.ramfee $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.saving'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.'baic.saving'.pri_key"
+	$cli_path/./$baic_cli create account  baic baic.saving $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.stake'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.'baic.stake'.pri_key"
+	$cli_path/./$baic_cli create account  baic baic.stake $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.token'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.'baic.token'.pri_key"
+	$cli_path/./$baic_cli create account  baic baic.token $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.vpay'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.'baic.vpay'.pri_key"
+	$cli_path/./$baic_cli create account  baic baic.vpay $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.sudo'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.'baic.sudo'.pri_key"
+	$cli_path/./$baic_cli create account  baic baic.sudo $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.high'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.'baic.high'.pri_key"
+	$cli_path/./$baic_cli create account  baic baic.high $owner_key $pri_key
+	
+	owner_key=`get_json_info $G_config "G_account_info.'baic.pool'.pub_key"
+	pri_key=`get_json_info $G_config "G_account_info.'baic.pool'.pri_key"
+	$cli_path/./$baic_cli create account  baic baic.pool $owner_key $pri_key
+	
 
 }
 
 function base_set_sys_contracts() {
-       
+       	
+	if [ -s baic.token.wasm ] || [ -s baic.dusd.wasm ] || [ -s baic.msig.wasm ] || [ -s baic.sudo.wasm ] || [ -s baic.token.high.wasm ] || [ -s baic.system.wasm ] \
+	|| [ -s baic.token.abi ] || [ -s baic.dusd.abi ] || [ -s baic.msig.abi ] || [ -s baic.sudo.abi ] || [ -s baic.token.high.abi ] || [ -s baic.system.abi ]; then
+		echo "Error! please check your system wasm and abi, they must be in current directory!"
+	fi
+	
 	$cli_path/./$baic_cli wallet unlock -n baic --password $walletpwd 2>/dev/null
-	$cli_path/./$baic_cli set contract baic.token ~/ ~/baic.token.wasm ~/baic.token.abi  -p  baic.token
-	$cli_path/./$baic_cli set contract baic.dusd ~/ ~/baic.dusd.wasm ~/baic.dusd.abi  -p  baic.dusd
-	$cli_path/./$baic_cli set contract baic.msig ~/ ~/baic.msig.wasm ~/baic.msig.abi  -p  baic.msig
-	$cli_path/./$baic_cli set contract baic.sudo ~/ ~/baic.sudo.wasm ~/baic.sudo.abi  -p  baic.sudo
-	$cli_path/./$baic_cli set contract baic.high ~/ ~/baic.token.high.wasm ~/baic.token.high.abi  -p  baic.high
-	$cli_path/./$baic_cli set contract baic ~/ ~/baic.system.wasm ~/baic.system.abi  -p  baic -x 1000
+	$cli_path/./$baic_cli set contract baic.token . ./baic.token.wasm ./baic.token.abi  -p  baic.token
+	$cli_path/./$baic_cli set contract baic.dusd . ./baic.dusd.wasm ./baic.dusd.abi  -p  baic.dusd
+	$cli_path/./$baic_cli set contract baic.msig . ./baic.msig.wasm ./baic.msig.abi  -p  baic.msig
+	$cli_path/./$baic_cli set contract baic.sudo . ./baic.sudo.wasm ./baic.sudo.abi  -p  baic.sudo
+	$cli_path/./$baic_cli set contract baic.high . ./baic.token.high.wasm ./baic.token.high.abi  -p  baic.high
+	$cli_path/./$baic_cli set contract baic . ./baic.system.wasm ./baic.system.abi  -p  baic -x 1000
 }
 
 function init_base() {
 	echo '==========base new wallet =================='
-	base_new_wallet "baic" $G_baic_owner_private_key $G_baic_active_private_key
+	owner_key=`get_json_info $G_config "G_account_info.'baic.dusd'.pub_key"`
+	pri_key=`get_json_info $G_config "G_account_info.baic.pri_key"`
+	base_new_wallet "baic" $owner_key $pri_key
 	sleep 1
 	echo '==========base_create_sys_accounts=========='
 	sleep 1
@@ -409,9 +512,9 @@ function system_new_accounts() {
 
 	echo $buy_ram_amounts
 	
-	echo "$cli_path/./$baic_cli system newaccount --transfer --stake-net "$stake_net_amounts" --stake-cpu "$stake_cpu_amounts" --buy-ram "$buy_ram_amounts" baic $new_user BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
+	echo "$cli_path/./$baic_cli system newaccount --transfer --stake-net "$stake_net_amounts" --stake-cpu "$stake_cpu_amounts" --buy-ram "$buy_ram_amounts" baic $new_user $owner_key $pri_key"
 	
-	$cli_path/./$baic_cli system newaccount --transfer --stake-net "$stake_net_amounts" --stake-cpu "$stake_cpu_amounts" --buy-ram "$buy_ram_amounts" baic $new_user BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+	$cli_path/./$baic_cli system newaccount --transfer --stake-net "$stake_net_amounts" --stake-cpu "$stake_cpu_amounts" --buy-ram "$buy_ram_amounts" baic $new_user $owner_key $pri_key
 }
 
 function get_asset() {
@@ -834,9 +937,6 @@ do
 		echo
 		char=`get_char`
 done
-
-
-
 
 
 
