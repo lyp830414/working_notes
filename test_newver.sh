@@ -8,134 +8,170 @@ g_arr=()
 
 G_config='{
 	"G_base_info": {
-		"cli_path":"/home/lyp/new_baic_chain/Baic-Chain/build/programs/baic_cli",
-		"data_path":"./lypdata",
+		"cli_path":"/root/lyp_baic_chain/Baic-Chain/build/programs/baic_cli",
+		"data_path":"/root/lyp_baic_chain/Baic-Chain/build/programs/nodeos/lypdata",
 		"wallet_url":"http://127.0.0.1:20188", 
 		"baic_cli":"baic_cli --wallet-url http://127.0.0.1:20188 --url http://127.0.0.1:20188"
 	},
-	"G_account_info":{
+	"G_account_info": {
 				"baic":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.token":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.dusd":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.msig":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.sudo":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.high":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.pool":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.vpay":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.stake":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.saving":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.ram":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
-				"baic.ramfree":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+				"baic.ramfee":{
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.names":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.bpay":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"baic.names":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"testa":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"testb":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
 					},
 				"testc":{
-						"pub_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
-						"pri_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
+						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
 						"stake_ram":"7.500000000 DUSD"
@@ -190,10 +226,9 @@ G_config='{
 }'
 
 function get_json_info() {
-	config=$1
-	keyword=$2
+	keyword=$1
 	#echo "echo G_onfig|jq .$keyword"
-	value=`echo "$config"|jq '.'$keyword''`
+	value=`echo "$G_config"|jq '.'$keyword''`
 	#echo "key: $keyword"
 	#echo "value: $value"
 	
@@ -201,8 +236,8 @@ function get_json_info() {
 	echo $value
 }
 
-#value=`echo "$G_config"|jq '.acc'`
-#value=`echo "$G_config"|jq '."ac.c"'`
+#value=`echo ""|jq '.acc'`
+#value=`echo ""|jq '."ac.c"'`
 
 ##########################   CONFIGURATION  END #####################################
 
@@ -230,9 +265,9 @@ function get_json_info() {
 
 g_arr[${#g_arr[*]}]="sys_init"
 
-g_arr[${#g_arr[*]}]="new_account testa"
-g_arr[${#g_arr[*]}]="new_account testb"
-g_arr[${#g_arr[*]}]="new_account testc"
+#g_arr[${#g_arr[*]}]="new_account testa"
+#g_arr[${#g_arr[*]}]="new_account testb"
+#g_arr[${#g_arr[*]}]="new_account testc"
 
 #g_arr[${#g_arr[*]}]=new_token "HEMP"
 #g_arr[${#g_arr[*]}]=transfer "trans_a"
@@ -258,9 +293,11 @@ owner_private=""
 active_pub=""
 active_private=""
 
-wallet_path=`get_json_info "$G_config" "G_base_info.data_path"`
-cli_path=`get_json_info "$G_config" "G_base_info.cli_path"`
-baic_cli=`get_json_info "$G_config" "G_base_info.baic_cli"`
+wallet_path=`get_json_info "G_base_info.data_path"`
+cli_path=`get_json_info "G_base_info.cli_path"`
+baic_cli=`get_json_info "G_base_info.baic_cli"`
+
+
 
 get_char()
 {
@@ -287,6 +324,7 @@ function base_new_wallet() {
 		exit
 	fi	
 	
+	echo "rm -rf $wallet_path/*.wallet"
 	rm -rf $wallet_path/*.wallet
 
 	#walletpwd=$G_wallet_password
@@ -331,60 +369,60 @@ function base_new_wallet() {
 }
 
 function base_create_sys_accounts() {
+	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+	owner_key=`get_json_info "G_account_info.\"baic.dusd\".owner_pub_key"`
+	act_key=`get_json_info "G_account_info.\"baic.dusd\".act_pub_key"`
+	$cli_path/./$baic_cli create account baic baic.dusd $owner_key $act_key
 	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.dusd'.pub_key"`
-	pri_key=`get_json_info $G_config "G_account_info.baic.pri_key"`
-	$cli_path/./$baic_cli create account baic baic.dusd $owner_key $pri_key
+	owner_key=`get_json_info  "G_account_info.\"baic.bpay\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.bpay\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic baic.bpay $owner_key $act_key
 	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.pay'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.'baic.pay'.pri_key"
-	$cli_path/./$baic_cli create account  baic baic.bpay $owner_key $pri_key
+	owner_key=`get_json_info  "G_account_info.\"baic.msig\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.msig\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic  baic.msig $owner_key $act_key
+
+	owner_key=`get_json_info  "G_account_info.\"baic.names\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.names\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic baic.names $owner_key $act_key
 	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.msig'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.baic.pri_key"
-	$cli_path/./$baic_cli create account  baic  baic.msig $owner_key $pri_key
-	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.names'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.'baic.names'.pri_key"
-	$cli_path/./$baic_cli create account  baic baic.names $owner_key $pri_key
-	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.ram'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.'baic.ram'.pri_key"
-	$cli_path/./$baic_cli create account  baic baic.ram $owner_key $pri_key
-	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.ramfee'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.'baic.ramfee'.pri_key"
-	$cli_path/./$baic_cli create account  baic baic.ramfee $owner_key $pri_key
-	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.saving'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.'baic.saving'.pri_key"
-	$cli_path/./$baic_cli create account  baic baic.saving $owner_key $pri_key
-	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.stake'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.'baic.stake'.pri_key"
-	$cli_path/./$baic_cli create account  baic baic.stake $owner_key $pri_key
-	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.token'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.'baic.token'.pri_key"
-	$cli_path/./$baic_cli create account  baic baic.token $owner_key $pri_key
-	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.vpay'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.'baic.vpay'.pri_key"
-	$cli_path/./$baic_cli create account  baic baic.vpay $owner_key $pri_key
-	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.sudo'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.'baic.sudo'.pri_key"
-	$cli_path/./$baic_cli create account  baic baic.sudo $owner_key $pri_key
-	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.high'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.'baic.high'.pri_key"
-	$cli_path/./$baic_cli create account  baic baic.high $owner_key $pri_key
-	
-	owner_key=`get_json_info $G_config "G_account_info.'baic.pool'.pub_key"
-	pri_key=`get_json_info $G_config "G_account_info.'baic.pool'.pri_key"
-	$cli_path/./$baic_cli create account  baic baic.pool $owner_key $pri_key
+	owner_key=`get_json_info  "G_account_info.\"baic.ram\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.ram\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic baic.ram $owner_key $act_key
 	
 
+	owner_key=`get_json_info  "G_account_info.\"baic.ramfee\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.ramfee\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic baic.ramfee $owner_key $act_key
+	
+	owner_key=`get_json_info  "G_account_info.\"baic.saving\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.saving\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic baic.saving $owner_key $act_key
+	
+	owner_key=`get_json_info  "G_account_info.\"baic.stake\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.stake\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic baic.stake $owner_key $act_key
+	
+	owner_key=`get_json_info  "G_account_info.\"baic.token\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.token\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic baic.token $owner_key $act_key
+	
+	owner_key=`get_json_info  "G_account_info.\"baic.vpay\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.vpay\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic baic.vpay $owner_key $act_key
+	
+	owner_key=`get_json_info  "G_account_info.\"baic.sudo\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.sudo\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic baic.sudo $owner_key $act_key
+	
+	owner_key=`get_json_info  "G_account_info.\"baic.high\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.high\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic baic.high $owner_key $act_key
+	
+	owner_key=`get_json_info  "G_account_info.\"baic.pool\".owner_pub_key"`
+	act_key=`get_json_info  "G_account_info.\"baic.pool\".act_pub_key"`
+	$cli_path/./$baic_cli create account  baic baic.pool $owner_key $act_key
 }
 
 function base_set_sys_contracts() {
@@ -405,9 +443,9 @@ function base_set_sys_contracts() {
 
 function init_base() {
 	echo '==========base new wallet =================='
-	owner_key=`get_json_info $G_config "G_account_info.'baic.dusd'.pub_key"`
-	pri_key=`get_json_info $G_config "G_account_info.baic.pri_key"`
-	base_new_wallet "baic" $owner_key $pri_key
+	owner_pri_key=`get_json_info "G_account_info.baic.owner_pri_key"`
+	act_pri_key=`get_json_info "G_account_info.baic.act_pri_key"`
+	base_new_wallet "baic" $owner_pri_key $act_pri_key
 	sleep 1
 	echo '==========base_create_sys_accounts=========='
 	sleep 1
@@ -639,6 +677,10 @@ else
 fi
 
 echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+if [ $_CONF == "false" ]; then
+	g_arr=()
+	g_arr[${#g_arr[@]}]=$1
+fi
 
 for _param in ${g_arr[@]}
 do
