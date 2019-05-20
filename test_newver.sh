@@ -8,8 +8,8 @@ g_arr=()
 
 G_config='{
 	"G_base_info": {
-		"cli_path":"/root/lyp_baic_chain/Baic-Chain/build/programs/baic_cli",
-		"data_path":"/root/lyp_baic_chain/Baic-Chain/build/programs/nodeos/lypdata",
+		"cli_path":"/home/lyp/code_baic_chain/Baic-Chain/build/programs/baic_cli",
+		"data_path":"/home/lyp/code_baic_chain/Baic-Chain/build/programs/nodeos/lypdata",
 		"wallet_url":"http://127.0.0.1:20188", 
 		"baic_cli":"baic_cli --wallet-url http://127.0.0.1:20188 --url http://127.0.0.1:20188"
 	},
@@ -21,7 +21,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.token":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -30,7 +31,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.dusd":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -39,7 +41,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.msig":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -48,7 +51,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.sudo":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -57,7 +61,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.high":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -66,7 +71,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.pool":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -75,7 +81,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.vpay":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -84,7 +91,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.stake":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -93,7 +101,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.saving":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -102,7 +111,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.ram":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -111,7 +121,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.ramfee":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -120,7 +131,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.names":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -129,7 +141,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.bpay":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -138,7 +151,8 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
 				"baic.names":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
@@ -147,81 +161,147 @@ G_config='{
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
-				"testa":{
+				"testaaaaaaaa":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
 						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"baic"
 					},
-				"testb":{
+				"testbbbbbbbb":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
 						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"testaaaaaaaa"
 					},
-				"testc":{
+				"testcccccccc":{
 						"owner_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
 						"owner_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"act_pri_key":"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
 						"act_pub_key":"BAIC6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
 						"stake_net":"0.500000000 DUSD",
 						"stake_cpu":"0.500000000 DUSD",
-						"stake_ram":"7.500000000 DUSD"
+						"stake_ram":"7.500000000 DUSD",
+						"signer":"testaaaaaaaa"
 					}
-					
 	},
-	"G_transfer_info": {	
+	"G_transfer_info": {
 				"trans_a": {
 						"from": "baic",
-						"to":"testa",
+						"to":"testaaaaaaaa",
 						"contract":"baic.token",
-						"amount":"1.000000000 DUSD"
+						"amount":"111.000000000 DUSD",
+						"memo":"transfer"
 					},
 				"trans_b": {
-						"from": "testa",
-						"to":"testb",
-						"contract":"testa",
-						"amount":"1.000000000 TESTA"
+						"from": "testaaaaaaaa",
+						"to":"testbbbbbbbb",
+						"contract":"testaaaaaaaa",
+						"amount":"1.0000 TESTA",
+						"memo":"transfer"
 					},
 				"trans_c":{
-						"from": "testb",
-						"to":"testc",
-						"contract":"testa",
-						"amount":"1.000000000 TESTA"
+						"from": "testbbbbbbbb",
+						"to":"testcccccccc",
+						"contract":"testaaaaaaaa",
+						"amount":"1.0000 TESTA",
+						"memo":"transfer"
 					},
 				"trans_d":{
-						"from": "testa",
-						"to":"testc",
-						"contract":"testa",
-						"amount":"1.000000000 TESTA"
+						"from": "testaaaaaaaa",
+						"to":"testcccccccc",
+						"contract":"testaaaaaaaa",
+						"amount":"1.0000 TESTA",
+						"memo":"transfer"
 					}
-					
 	},
-	"G_publish_token_info": {
+	"G_new_token_info": {
+			"DUSD":{
+				"issuer":"baic",
+				"buyer":"baic",
+				"contract":"baic.token",
+				"contract_path":"/home/lyp/code_baic_chain/Baic-Chain/build/programs/baic_cli",
+				"contract_wasm":"/home/lyp/code_baic_chain/Baic-Chain/build/programs/baic_cli/baic.token.wasm",
+				"contract_abi":"/home/lyp/code_baic_chain/Baic-Chain/build/programs/baic_cli/baic.token.abi",
+				"need_buy_ram":{
+					"need_or_not":"false",
+					"amount":"280.000000000 DUSD"
+				},
+				"need_earn_dusd":{
+					"need_or_not":"false",
+					"amount":"3.000000000 DUSD"
+				},
+				"amount": "2000000.000000000 DUSD",
+				"issue_amount": "2000.000000000 DUSD"
+			},
 			"HEMP":{
 				"issuer":"baic",
 				"buyer":"hemp",
 				"contract":"hemp",
-				"contract_wasm":"/root/baic.token.wasm",
-				"contract_abi":"/root/baic.token.abi",
+				"contract_path":"/home/lyp/code_baic_chain/Baic-Chain/build/programs/baic_cli",
+				"contract_wasm":"/home/lyp/code_baic_chain/Baic-Chain/build/programs/baic_cli/baic.token.wasm",
+				"contract_abi":"/home/lyp/code_baic_chain/Baic-Chain/build/programs/baic_cli/baic.token.abi",
 				"need_buy_ram":{
-					"need_or_not":true,
+					"need_or_not":"true",
 					"amount":"280.000000000 DUSD"
 				},
 				"need_earn_dusd":{
-					"need_or_not":true,
+					"need_or_not":"true",
 					"amount":"3.000000000 DUSD"
 				},
-				"amount": "2000000.0000 HEMP"
+				"amount": "2000000.0000 HEMP",
+				"issue_amount": "200.0000 HEMP"
+			},
+			"TESTA":{
+				"issuer":"testaaaaaaaa",
+				"buyer":"baic",
+				"contract":"testaaaaaaaa",
+				"contract_path":"/home/lyp/code_baic_chain/Baic-Chain/build/programs/baic_cli",
+				"contract_wasm":"/home/lyp/code_baic_chain/Baic-Chain/build/programs/baic_cli/baic.token.wasm",
+				"contract_abi":"/home/lyp/code_baic_chain/Baic-Chain/build/programs/baic_cli/baic.token.abi",
+				"need_buy_ram":{
+					"need_or_not":"true",
+					"amount":"280.000000000 DUSD"
+				},
+				"need_earn_dusd":{
+					"need_or_not":"true",
+					"amount":"3.000000000 DUSD"
+				},
+				"amount": "2000000.0000 TESTA",
+				"issue_amount": "200.0000 TESTA"
 			}
+	},
+	"G_issue_token_info": {
+		"issue_a": {
+			"issuer":"testaaaaaaaa",
+			"contract":"testaaaaaaaa",
+			"amount":"1.0000 TESTA"
+
+		},
+		"issue_a2": {
+			"issuer":"testaaaaaaaa",
+			"contract":"testaaaaaaaa",
+			"amount":"1.0000 TESTA"
+		}
+	},
+	"G_get_info": {
+		"get_account":"testaaaaaaaa",
+		"get_transaction":"88392026fd422a245746da195c068bbd0a9ceaa8e161870fdd84e88c886fc36f",
+		"get_code_abi": {
+			"contract":"testaaaaaaaa",
+			"save_wasm":"/home/lyp.testaaaaaaaa.wasm",
+			"save_abi":"/home/lyp.testaaaaaaaa.wasm"
+		}
 	}
 }'
 
@@ -255,11 +335,15 @@ function get_json_info() {
 ###########################    YOUR CHOICE    ###################################
 
 #g_arr[${#g_arr[*]}]="sys_init"
+#g_arr[${#g_arr[*]}]="new_token DUSD"
 
-g_arr[${#g_arr[*]}]="new_token TESTA"
+#g_arr[${#g_arr[*]}]="new_account testaaaaaaaa"
+#g_arr[${#g_arr[*]}]="transfer trans_a"
+#g_arr[${#g_arr[*]}]="new_token TESTA"
 
-#g_arr[${#g_arr[*]}]="new_account testb"
-#g_arr[${#g_arr[*]}]="new_account testc"
+#g_arr[${#g_arr[*]}]="new_account testbbbbbbbb"
+#g_arr[${#g_arr[*]}]="transfer trans_b"
+#g_arr[${#g_arr[*]}]="issue_token issue_a"
 
 #g_arr[${#g_arr[*]}]=new_token "HEMP"
 #g_arr[${#g_arr[*]}]=transfer "trans_a"
@@ -267,9 +351,9 @@ g_arr[${#g_arr[*]}]="new_token TESTA"
 #g_arr[${#g_arr[*]}]=new_token
 
 #g_arr[${#g_arr[*]}]=transfer
-#g_arr[${#g_arr[*]}]=get_account
-#g_arr[${#g_arr[*]}]=get_transaction
-#g_arr[${#g_arr[*]}]=get_code_abi
+g_arr[${#g_arr[*]}]="get_account testaaaaaaaa"
+g_arr[${#g_arr[*]}]="get_transaction 88392026fd422a245746da195c068bbd0a9ceaa8e161870fdd84e88c886fc36f"
+g_arr[${#g_arr[*]}]="get_code_abi testaaaaaaaa"
 
 #g_arr[${#arr[*]}]=
 #g_arr[${#arr[*]}]=
@@ -339,7 +423,7 @@ function base_new_wallet() {
 	#	fi
 	#fi
 	
-	echo "  !!!!!!!!!!!!!!!! password-->"$walletpwd
+	#echo "  !!!!!!!!!!!!!!!! password-->"$walletpwd
 
 	
 	user_owner_prvkey=$2
@@ -451,6 +535,7 @@ function raise_token() {
 	issuer=$1
 	max_supply=$2
 	token_contract=$3
+	issue_supply=$4
 
 	echo "token_contract: $token_contract"
 
@@ -461,7 +546,7 @@ function raise_token() {
 	
 	sleep 1
 	
-	param='["'$issuer'", "'$max_supply'", "issue the new token"]'
+	param='["'$issuer'", "'$issue_supply'", "issue the new token"]'
 	echo "$cli_path/./$baic_cli push action $token_contract  issue \"$param\" -p $issuer"
 	$cli_path/./$baic_cli push action $token_contract issue "$param" -p $issuer
 	sleep 1
@@ -481,17 +566,20 @@ function issue_token() {
 
 function system_new_accounts_with_wallet() {
 	if [ $_CONF == "true" ]; then
-		account=$G_new_account_name[$G_new_account_name_cnt]
-		owner_pub=$G_owner_public_key
-		owner_private=$G_owner_private_key
-		active_pub=$G_active_public_key
-		active_private=$G_active_private_key
-		stake_cpu_dusd=$G_stake_cpu_dusd
-		stake_net_dusd=$G_stake_net_dusd
-		stake_ram_dusd=$G_stake_ram_dusd
-		signer=$G_signer
-		signer_owner_private=$G_signer_owner_private
-		signer_active_private=$G_signer_active_private
+		account=$1
+		owner_pub=`get_json_info "G_account_info.\"$account\".owner_pub_key"`
+		owner_private=`get_json_info "G_account_info.\"$account\".owner_pri_key"`
+		active_pub=`get_json_info "G_account_info.\"$account\".owner_pub_key"`
+		active_private=`get_json_info "G_account_info.\"$account\".owner_pri_key"`
+		
+		stake_cpu_dusd=`get_json_info "G_account_info.\"$account\".stake_cpu"`
+		stake_net_dusd=`get_json_info "G_account_info.\"$account\".stake_net"`
+		stake_ram_dusd=`get_json_info "G_account_info.\"$account\".stake_ram"`
+
+		signer=`get_json_info "G_account_info.\"$account\".signer"`
+		signer_owner_private=`get_json_info "G_account_info.\"$signer\".owner_pri_key"`
+		signer_active_private=`get_json_info "G_account_info.\"$signer\".act_pri_key"`
+		echo "SIGNER: $signer, $signer_owner_private  $signer_active_private"
 	else	
 		echo "input your account name"
 		read account
@@ -522,15 +610,18 @@ function system_new_accounts_with_wallet() {
 		read stake_ram_dusd
 		
 	fi
-	
+
+	#owner_pub=`get_json_info "G_account_info.baic.owner_pub_key"`
+	#owner_private=`get_json_info "G_account_info.baic.owner_pri_key"`
+	#active_pub=`get_json_info "G_account_info.baic.owner_pub_key"`
+	#active_private=`get_json_info "G_account_info.baic.owner_pri_key"`
+
 	base_new_wallet $account $signer_owner_private $signer_active_private
 	
 	echo "$cli_path/./$baic_cli system newaccount --transfer --stake-net \"$stake_net_dusd\" --stake-cpu \"$stake_cpu_dusd\" --buy-ram \"$stake_ram_dusd\" $signer $account $owner_pub $active_pub"
 	$cli_path/./$baic_cli system newaccount --transfer --stake-net "$stake_net_dusd" --stake-cpu "$stake_cpu_dusd" --buy-ram "$stake_ram_dusd" $signer $account $owner_pub $active_pub
 	
 	base_new_wallet $account $signer_owner_private $signer_active_private
-	
-	G_new_account_name = `expr $G_new_account_name + 1`
 }
 
 function system_new_accounts() {
@@ -627,7 +718,7 @@ function check_amount_valid() {
 function print_help() {
 
 	echo "parameters:"
-	echo "init | get | publish | newaccount | transfer"
+	echo "init | get | publish | newaccount | transfer | issue_token | --conf"
 }
 
 function transfer_cash() {
@@ -668,7 +759,6 @@ else
 	_arr=$*
 fi
 
-echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 if [ $_CONF == "false" ]; then
 	g_arr=()
 	g_arr[${#g_arr[@]}]=$1
@@ -678,7 +768,11 @@ for _params in "${g_arr[@]}"
 do
 	_param=`echo $_params|awk -F ' ' '{print $1}' `
 	_argv=`echo $_params|awk -F ' ' '{print $2}' `
-	echo "PARAM >>>>>>> $_param, >>>>>>_argvs: $_argv"
+	
+	echo
+	echo "================= TASK INFO : $_param (_argvs: $_argv) ==========================="
+	echo
+
 	if [ $_CONF == "true" ]; then
 		case $_param in 
 			sys_init)
@@ -706,7 +800,7 @@ do
 	else
 		input_param=$_param
 	fi
-	echo "input_param: $inpu_param"
+	#echo "input_param: $inpu_param"
 	case $input_param in
 		init)
 			echo "+++INIT BASE++++"
@@ -717,32 +811,54 @@ do
 			echo "++PUBLISH YOUR TOKEN++++"
 			echo
 			if [ $_CONF == "true" ]; then
-				
-				account=$G_issuer
-				if [ ${#account} -lt 1 ]; then #check length of token string
-					echo "Please give an account name."
+				token_name=$_argv
+				issuer_account=`get_json_info "G_new_token_info.$token_name.issuer"`
+				contract_account=`get_json_info "G_new_token_info.$token_name.contract"`
+				if [ ${#contract_account} -lt 1 ]; then #check length of token string
+					echo "Please give your contract account name."
 					exit
 				fi
 				
-				base_new_wallet $account $G_issue_owner_private_key $G_issue_active_private_key
+				owner_pri_key=`get_json_info "G_account_info.baic.owner_pri_key"`
+				act_pri_key=`get_json_info "G_account_info.baic.act_pri_key"`
 				
-				if [ $G_set_contract == "true" ] && [ $G_buy_account != baic ] && [ "$G_buy_account != baicpay" ] && [ $G_buy_account != "baic.token" ]; then
-					if [ ! -z $G_buy_ram ]; then
-						$cli_path/./$baic_cli system buyram baic $G_buy_account $G_buy_ram
-					fi
-					
-					if [ ! -z $G_buy_dusd ]; then
-						$cli_path/./$baic_cli transfer baic $G_buy_account $G_buy_dusd
-					fi		
-				fi
+				base_new_wallet $contract_account $owner_pri_key $act_pri_key
 
-				$cli_path/./$baic_cli set contract $account $G_contract_path $G_contract_wasm $G_contract_abi
+				
+				if_buy_ram=`get_json_info "G_new_token_info.$token_name.need_buy_ram.need_or_not"`	
+				ram_amount=`get_json_info "G_new_token_info.$token_name.need_buy_ram.amount"`
+				if_buy_dusd=`get_json_info "G_new_token_info.$token_name.need_buy_dusd.need_or_not"`	
+				dusd_amount=`get_json_info "G_new_token_info.$token_name.need_buy_dusd.need_or_not.amount"`	
+				
+				contract_path=`get_json_info "G_new_token_info.$token_name.contract_path"`
+				wasm_path=`get_json_info "G_new_token_info.$token_name.contract_wasm"`
+				abi_path=`get_json_info "G_new_token_info.$token_name.contract_abi"`
+				
+				publish_token_amount=`get_json_info "G_new_token_info.$token_name.amount"`
+				issue_token_amount=`get_json_info "G_new_token_info.$token_name.issue_amount"`
+
+				if [ $if_buy_ram == "true" ]; then
+					$cli_path/./$baic_cli system buyram baic $contract_account "$ram_amount"
+				fi
+				
+				if [ $if_buy_dusd == "true" ]; then
+					$cli_path/./$baic_cli transfer baic $contract_account "$dusd_amount"
+				fi		
+				
+				$cli_path/./$baic_cli set contract $contract_account $contract_path $wasm_path $abi_path
 
 			else
-				account=""
+				contract_account=""
 				echo "You need publish token to whom(account name):"
-				read account
-				if [ ${#account} -lt 1 ]; then #check length of token string
+				read issuer_account
+				if [ ${#issuer_account} -lt 1 ]; then #check length of token string
+					echo "Please give an account name."
+					exit
+				fi
+
+				echo "you need use which contract to publish your token:"
+				read contract_account
+				if [ ${#contract_account} -lt 1 ]; then #check length of token string
 					echo "Please give an account name."
 					exit
 				fi
@@ -765,7 +881,6 @@ do
 
 				wasm_path=$contract_path/$wasm_name
 				abi_path=$contract_path/$abi_name
-				
 
 				if [ $yes_or_no == "y" ]; then
 					echo "input your buy ram value:"
@@ -773,49 +888,64 @@ do
 					echo "inpit yor buy dusd value:"
 					read buy_dusd
 					
-					base_new_wallet "baic" $G_baic_owner_private_key $G_baic_active_private_key
+					baic_owner_pri_key=`get_json_info "G_account_info.baic.owner_pri_key"`
+					baic_act_pri_key=`get_json_info "G_account_info.baic.act_pri_key"`
+
+					base_new_wallet "baic" $baic_owner_pri_key $baic_act_pri_key
 					
-					$cli_path/./$baic_cli system buyram baic $account "$buy_ram"
-					$cli_path/./$baic_cli transfer baic $account "$buy_dusd"
+					$cli_path/./$baic_cli system buyram baic $contract_account "$buy_ram"
+					$cli_path/./$baic_cli transfer baic $contract_account "$buy_dusd" -p baic
 				fi
 				
-				echo "Please give your owner private and active private in one line"
+				echo "Please give your contract accout's owner private and active private in one line"
 				read owner_private  active_private
-				base_new_wallet $account $owner_private $active_private
+				base_new_wallet $contract_account $owner_private $active_private
 				
-				echo " $cli_path/./$baic_cli set contract $account $contract_path $G_contract_wasm $G_contract_abi"
-				$cli_path/./$baic_cli set contract $account $contract_path $wasm_path $abi_path
+				echo " $cli_path/./$baic_cli set contract $contract_account $contract_path $wasm_path $abi_path"
+				$cli_path/./$baic_cli set contract $contract_account $contract_path $wasm_path $abi_path
 			fi
 
 
 			if [ $_CONF == "true" ]; then
 				#base_new_wallet $account $G_issue_owner_private_key $G_issue_active_private_key
 
-				raise_token $account "$G_token_supply" $G_token_contract
+				raise_token $issuer_account "$publish_token_amount" $contract_account "$issue_token_amount"
 			else
 				#echo "Please give your owner private and active private in one line"
 				#read owner_private  active_private
-				base_new_wallet $account $owner_private $active_private
+				base_new_wallet $contract_account $owner_private $active_private
 				
 				echo "please give your max supply (i,e 11.000000000 <token name>)"
 				read max_supply
 				
+				echo "please give your issue amount (i,e 11.000000000 <token name>)"
+				read issue_token_amount
+				
 				echo "please input your token contract name: i.e baic.token, dma.music, cmux..."
 				read token_contract
 				
-				echo "token_contract: $token_contract"
-				raise_token $account $token "$max_supply" $token_contract 
+				echo "issuer_account: $issuer_account, token_contract: $token_contract"
+				raise_token $issuer_account $token "$max_supply" $token_contract "$issue_token_amount"
 			fi
 		;;
 		issue_token)
 			echo
 			echo "++ISSUE YOUR TOKEN++++"
 			echo
+
+			issuer_case=$_argv
 			
+			echo "issuer_case: $issuer_case"
+
 			if [ $_CONF == "true" ]; then
-				account=$G_issuer
+				account=`get_json_info "G_issue_token_info.\"$issuer_case\".issuer"`
+				owner_pri_key=`get_json_info "G_account_info.\"$account\".owner_pri_key"`
+				act_pri_key=`get_json_info "G_account_info.\"$account\".act_pri_key"`
+				contract=`get_json_info "G_issue_token_info.\"$issuer_case\".contract"`
+				issue_supply=`get_json_info "G_issue_token_info.\"$issuer_case\".amount"`
+				echo "issuer: $account, $owner_pri_key $act_pri_key"
 			else
-				echo "You need publish token to whom(account name):"
+				echo "You need issue your token to whom(account name):"
 				read account
 			fi
 
@@ -825,32 +955,32 @@ do
 			fi
 
 			if [ $_CONF == "true" ]; then
-				base_new_wallet $account $G_issue_owner_private_key $G_issue_active_private_key
-
-				issue_token $account $G_token_supply $G_token_contract
+				echo "base_new_wallet $account $owner_pri_key $act_pri_key"
+				base_new_wallet $account $owner_pri_key $act_pri_key
+				issue_token $account "$issue_supply" $contract
 			else
 				echo "Please give your owner private and active private in one line"
 				read owner_private  active_private
 				base_new_wallet $account $owner_private $active_private
 				
-				echo "please give your max supply (i,e 11.000000000 <token name>)"
-				read max_supply
+				echo "please give your issue supply (i,e 11.000000000 <token name>)"
+				read issue_supply
 				
 				echo "please input your token contract name: i.e baic.token, dma.music, cmux..."
 				read token_contract
 
-				issue_token $account $max_supply $token_contract 
+				issue_token $account "$issue_supply" $token_contract 
 			fi
 		;;	
 		get)
-
 			if [ $_CONF == "true" ]; then
-				username=$G_account
-				contractname=$G_contract
-				trx_id=$G_trx_id
-				choice=$_get_choice
-				save_code=$G_save_code
-				save_abi=$G_save_abi
+				choice=$_param
+			
+				username=`get_json_info "G_get_info.get_account"`
+				contractname=`get_json_info "G_get_info.get_code_abi.contract"`
+				trx_id=`get_json_info "G_get_info.get_transaction"`
+				save_code=`get_json_info "G_get_info.get_code_abi.save_wasm"`
+				save_abi=`get_json_info "G_get_info.get_code_abi.save_abi"`
 			else
 				echo "input your choice"
 				echo "1. account and currency"
@@ -889,38 +1019,48 @@ do
 					;;
 				esac
 			fi	
-			
+
 			if [ $choice == "get_account" ]; then
+				echo
+				echo "++++++++++++GET ACCOUNT ++++++++++"
+				echo
 				$cli_path/./$baic_cli get account $username
 				echo "asset of $username:"
 				$cli_path/./$baic_cli get currency balance $contractname $username
 				echo
 			elif [ $choice == "get_code_abi" ]; then
-				echo "+++++ CODE +++++++"
+				echo
+				echo "+++++ GET CODE +++++++"
+				echo
 				$cli_path/./$baic_cli get code $contractname -c $save_code -a $save_abi --wasm
 				echo
-				echo "+++++ ABI ++++++++"
+				echo "+++++ GET ABI ++++++++"
+				echo
 				$cli_path/./$baic_cli get abi $contractname
 				echo
 			elif [ $choice == "get_transaction" ]; then
+				echo
+				echo "++++++++++++GET TRANSACTION  ++++++++++"
+				echo
 				$cli_path/./$baic_cli get transaction $trx_id
 			
 			fi
 		;;
 		newaccount)
-			
-			system_new_accounts_with_wallet
+			account=$_argv
+			system_new_accounts_with_wallet $account
 			
 		;;
 		transfer)
 			if [ $_CONF == "true" ]; then
-				from=$G_from
-				to=$G_to
-				amount=$G_amount
-				memo=$G_memo
-				from_owner_private_key=$G_from_owner_private_key
-				from_active_private_key=$G_from_active_private_key
-				transfer_contract=$G_transfer_contract
+				trans_case=$_argv
+				from=`get_json_info "G_transfer_info.\"$trans_case\".from"`
+				to=`get_json_info "G_transfer_info.\"$trans_case\".to"`
+				amount=`get_json_info "G_transfer_info.\"$trans_case\".amount"`
+				memo=`get_json_info "G_transfer_info.\"$trans_case\".memo"`
+				from_owner_private_key=`get_json_info "G_account_info.\"$from\".owner_pri_key"`
+				from_active_private_key=`get_json_info "G_account_info.\"$from\".act_pri_key"`
+				transfer_contract=`get_json_info "G_transfer_info.\"$trans_case\".contract"`
 			else 
 				from=""
 				to=""
