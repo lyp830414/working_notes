@@ -319,27 +319,14 @@ function get_json_info() {
 #value=`echo ""|jq '.acc'`
 #value=`echo ""|jq '."ac.c"'`
 
-##########################   CONFIGURATION  END #####################################
-
-#++++ sys_init ++++++++#
-#++++ new_account +++++#
-#++++ new_token   +++++#
-#++++ issue_token +++++#
-#++++ transfer    +++++#
-#++++ get_account +++++#
-#++++ get_transaction +++#
-#++++ get_code_abi ++++#
-
-# passed both in manual & conf
-
 ###########################    YOUR CHOICE    ###################################
 
-#g_arr[${#g_arr[*]}]="sys_init"
-#g_arr[${#g_arr[*]}]="new_token DUSD"
+g_arr[${#g_arr[*]}]="sys_init"
+g_arr[${#g_arr[*]}]="new_token DUSD"
 
-#g_arr[${#g_arr[*]}]="new_account testaaaaaaaa"
-#g_arr[${#g_arr[*]}]="transfer trans_a"
-#g_arr[${#g_arr[*]}]="new_token TESTA"
+g_arr[${#g_arr[*]}]="new_account testaaaaaaaa"
+g_arr[${#g_arr[*]}]="transfer trans_a"
+g_arr[${#g_arr[*]}]="new_token TESTA"
 
 #g_arr[${#g_arr[*]}]="new_account testbbbbbbbb"
 #g_arr[${#g_arr[*]}]="transfer trans_b"
@@ -429,11 +416,8 @@ function base_new_wallet() {
 	user_owner_prvkey=$2
 	user_active_prvkey=$3
 	echo 
-	echo "aaa:"
 	echo "wallet import private keys for $user: $user_owner_prvkey and $user_active_prvkey"
 	$cli_path/./$baic_cli wallet import --private-key $user_owner_prvkey 2>/dev/null
-	echo "bbb"
-	echo "!!!!"
 	echo "$cli_path/./$baic_cli wallet import --private-key $user_active_prvkey"
 	$cli_path/./$baic_cli wallet import --private-key $user_active_prvkey 2>/dev/null
 	echo "cccc"
