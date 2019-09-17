@@ -28,5 +28,9 @@ This article aims to build a stand-alone nodeos same as the producer.
 		add:  access-control-allow-origin='*'
 		modify:  contracts-console = true 	
 		modify:  verbose-http-errors = true
-	
+	        modify:  chain-state-db-size-mb = 10240
+                modify:  chain-state-db-guard-size-mb = 10240
+                modify:  reversible-blocks-db-size-mb = 10240
+                modify:  reversible-blocks-db-guard-size-mb = 10240
+
 3. eos currently only support ( 1 account + 1 contract , 1:1 ) mode	

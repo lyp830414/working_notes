@@ -1,0 +1,59 @@
+1. You should take the config.txt like following
+
+blocks-dir = "blocks"
+abi-serializer-max-time-ms = 150000
+chain-state-db-size-mb = 65536
+reversible-blocks-db-size-mb = 340
+
+contracts-console = false
+#read-mode = read-only
+
+https-client-validate-peers = 1
+http-server-address = 0.0.0.0:20188
+access-control-allow-credentials = false
+verbose-http-errors = false
+http-validate-host = 1
+
+p2p-listen-endpoint = 0.0.0.0:9876
+
+p2p-peer-address = 121.46.252.42:9786
+p2p-peer-address = 121.46.252.43:9786
+p2p-peer-address = 121.46.252.45:9786
+
+p2p-max-nodes-per-host = 1
+
+agent-name = "BAIC MongoDB Node"
+
+max-clients = 25
+
+mongodb-uri = mongodb://baic:baic@127.0.0.1:27017/BAIC
+mongodb-queue-size = 2048
+mongodb-wipe = false
+mongodb-block-start = 0
+mongodb-update-via-block-num = 0
+mongodb-store-blocks = 1
+mongodb-store-block-states = 1
+mongodb-store-transactions = 1
+mongodb-store-transaction-traces = 1
+mongodb-store-action-traces = 1
+
+mongodb-filter-on = *
+mongodb-filter-out = baic:onblock:
+
+plugin = baic::chain_api_plugin
+plugin = baic::mongo_db_plugin
+
+
+
+
+# note: For a fully mongodb node, do not use history_api / history referred plugins, that will waste your chain state db sizes.
+####### Also do not use bnet network for a mongodb node.
+
+
+
+2. How to start your node if you want to fully sync blocks from the very beginning
+
+a. you must have a snapshot data packages. do not use empty data or without any data pakcages
+b. you need start the node like this command: ./nodeos --config-dir /data/baic/config --data-dir /data/baic/data --replay-blockchain
+
+3. Above is for mongodb nodes only. If you do not need to sync from very beginning(but that will leads your mongodb not in complete.), then you should not take '--replay-blockchain'.
