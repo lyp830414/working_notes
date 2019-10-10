@@ -34,3 +34,9 @@ This article aims to build a stand-alone nodeos same as the producer.
                 modify:  reversible-blocks-db-guard-size-mb = 10240
 
 3. eos currently only support ( 1 account + 1 contract , 1:1 ) mode	
+
+Note:
+   If you are a sync-node, you should put this into your producer and your sync-node s' config:
+       genesis-json = "/home/imio/test_lyp/genesis.json"
+   and you do not need to use --genesis-json in your nodeos start parameters for either one.
+   
